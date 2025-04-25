@@ -22,6 +22,7 @@ class OphalingenPage extends StatelessWidget {
         start: DateTime.now().add(Duration(hours: index)),
         end: DateTime.now().add(Duration(hours: index + 2)),
         description: "Sample collection $index",
+        location: LatLng(51.0543, 3.7174),
       ),
     );
 
