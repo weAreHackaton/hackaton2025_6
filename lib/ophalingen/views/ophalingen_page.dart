@@ -3,6 +3,7 @@ import 'package:hackaton2025_6/package.dart';
 import 'package:latlong2/latlong.dart';
 
 import 'detail_page.dart';
+import 'InfoCard.dart';
 
 class OphalingenPage extends StatelessWidget {
   const OphalingenPage({super.key});
@@ -34,19 +35,25 @@ class OphalingenPage extends StatelessWidget {
         itemBuilder: (context, index) {
           Ophaling item = items[index];
 
-          return Card(
-            margin: const EdgeInsets.only(bottom: 16.0),
-            child: ListTile(
-              title: Text(item.user.name),
-              subtitle: Text('Details for $item'),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => DetailPage(ophaling: item),
-                  ),
-                );
-              },
+          return GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => DetailPage(ophaling: item),
+                ),
+              );
+            },
+            child: Card(
+              margin: const EdgeInsets.only(bottom: 16.0),
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: InfoCard(
+                  address: item.user.name,
+                  description: item.description,
+                  tags: item.foodtypes.map((type) => type.name).toList(),
+                ),
+              ),
             ),
           );
         },
