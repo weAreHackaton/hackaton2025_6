@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:hackaton2025_6/package.dart';
 
 class Ophaling extends Equatable {
   final User user;
@@ -9,15 +10,4 @@ class Ophaling extends Equatable {
 
   @override
   List<Object?> get props => [user];
-}
-
-class User extends Equatable {
-  final String name;
-
-  const User({
-    required this.name,
-  });
-
-  @override
-  List<Object?> get props => [name];
 }
