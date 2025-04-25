@@ -3,9 +3,7 @@ import 'package:equatable/equatable.dart';
 class Ophaling extends Equatable {
   final User user;
 
-  const Ophaling({
-    required this.user,
-  });
+  const Ophaling({required this.user});
 
   @override
   List<Object?> get props => [user];
@@ -14,10 +12,10 @@ class Ophaling extends Equatable {
 class User extends Equatable {
   final String name;
 
-  const User({
-    required this.name,
-  });
+  const User({required this.name});
 
   @override
   List<Object?> get props => [name];
 }
+
+const tempUSer = User(name: "hi");
