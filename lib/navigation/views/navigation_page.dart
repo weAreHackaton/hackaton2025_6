@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hackaton2025_6/package.dart';
+import 'package:hackaton2025_6/profiel/profile_page.dart';
 
 class NavigationPage extends StatefulWidget {
   const NavigationPage({super.key});
@@ -11,10 +12,7 @@ class NavigationPage extends StatefulWidget {
 class _NavigationPageState extends State<NavigationPage> {
   int _selectedIndex = 0;
 
-  final List<Widget> _pages = [
-    const OphalingenPage(),
-    const InstellingenPage(),
-  ];
+  final List<Widget> _pages = [const OphalingenPage(), const AccountScreen()];
 
   void _onItemTapped(int index) {
     setState(() {
@@ -42,12 +40,13 @@ class _NavigationPageState extends State<NavigationPage> {
           tooltip: '',
         ),
         NavigationDestination(
-          icon: Icon(Icons.settings_outlined),
-          selectedIcon: Icon(Icons.settings),
-          label: 'Instellingen',
+          icon: Icon(Icons.person_outlined),
+          selectedIcon: Icon(Icons.person),
+          label: 'Profiel',
           tooltip: '',
         ),
       ],
     );
   }
 }
+
