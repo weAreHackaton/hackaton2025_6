@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hackaton2025_6/ophalingen/models/ophaling.dart';
+import 'package:hackaton2025_6/profiel/models/user.dart';
 
 import 'detail_page.dart';
 
@@ -8,11 +9,10 @@ class OphalingenPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Sample data for the list
     final List<Ophaling> items = List.generate(
       20,
       (index) => Ophaling(
-        user: User(name: "user-$index"),
+        user: User(name: "user-$index", email: "mymail", phoneNumber: "9999"),
         foodtypes: [FoodType.vegetables, FoodType.fruits],
         start: DateTime.now().add(Duration(hours: index)),
         end: DateTime.now().add(Duration(hours: index + 2)),
