@@ -31,6 +31,7 @@ class _MapScreenState extends State<MapScreen> {
       start: DateTime.now().add(const Duration(hours: 2)),
       end: DateTime.now().add(const Duration(hours: 4)),
       description: 'Verse groenten en fruit van de lokale markt',
+      location: LatLng(51.2194, 4.4025),
     ),
     Ophaling(
       user: User(
@@ -43,6 +44,7 @@ class _MapScreenState extends State<MapScreen> {
       start: DateTime.now().add(const Duration(hours: 5)),
       end: DateTime.now().add(const Duration(hours: 7)),
       description: 'Koffiekoeken van de bakker om de hoek',
+      location: LatLng(50.8503, 4.3517),
     ),
     Ophaling(
       user: User(
@@ -55,14 +57,8 @@ class _MapScreenState extends State<MapScreen> {
       start: DateTime.now().add(const Duration(hours: 8)),
       end: DateTime.now().add(const Duration(hours: 10)),
       description: 'Vers vlees en vis uit de carrefour',
+      location: LatLng(51.0543, 3.7174),
     ),
-  ];
-
-  // Hardcoded locations for the Ophalingen
-  final List<LatLng> _locations = [
-    const LatLng(51.2194, 4.4025), // Antwerp
-    const LatLng(50.8503, 4.3517), // Brussels
-    const LatLng(51.0543, 3.7174), // Ghent
   ];
 
   @override
@@ -106,11 +102,10 @@ class _MapScreenState extends State<MapScreen> {
   void _addMarkers() {
     for (int i = 0; i < _ophalingen.length; i++) {
       final ophaling = _ophalingen[i];
-      final location = _locations[i];
       
       _markers.add(
         Marker(
-          point: location,
+          point: ophaling.location,
           width: 120,
           height: 80,
           child: GestureDetector(
@@ -192,7 +187,7 @@ class _MapScreenState extends State<MapScreen> {
       body: FlutterMap(
         mapController: _mapController,
         options: MapOptions(
-          initialCenter: _locations[0],
+          initialCenter: _ophalingen[0].location,
           initialZoom: 8.0,
           onTap: (_, __) {},
         ),
