@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:hackaton2025_6/ophalingen/models/ophaling.dart';
+import 'package:hackaton2025_6/profiel/models/user.dart';
+import 'package:intl/intl.dart';
 
 class MapScreen extends StatefulWidget {
   const MapScreen({super.key});
@@ -15,33 +18,51 @@ class _MapScreenState extends State<MapScreen> {
   final MapController _mapController = MapController();
   final List<Marker> _markers = [];
 
-  // Hardcoded locations with descriptions
-  final List<Map<String, dynamic>> _locations = [
-    {
-      'position': const LatLng(51.2194, 4.4025),
-      'title': 'Antwerp',
-      'description': 'Major port city with historic architecture',
-    },
-    {
-      'position': const LatLng(50.8503, 4.3517),
-      'title': 'Brussels',
-      'description': 'Capital of Belgium and EU',
-    },
-    {
-      'position': const LatLng(51.0543, 3.7174),
-      'title': 'Ghent',
-      'description': 'Medieval city with canals',
-    },
-    {
-      'position': const LatLng(50.8798, 4.7005),
-      'title': 'Leuven',
-      'description': 'University city with historic center',
-    },
-    {
-      'position': const LatLng(51.2089, 3.2242),
-      'title': 'Bruges',
-      'description': 'Venice of the North',
-    },
+  // Hardcoded Ophaling objects
+  final List<Ophaling> _ophalingen = [
+    Ophaling(
+      user: User(
+        name: 'John Doe',
+        email: 'john@example.com',
+        phoneNumber: '+32 123 45 67 89',
+        location: LatLng(51.0543, 3.7174),
+      ),
+      foodtypes: [FoodType.vegetables, FoodType.fruits],
+      start: DateTime.now().add(const Duration(hours: 2)),
+      end: DateTime.now().add(const Duration(hours: 4)),
+      description: 'Fresh vegetables and fruits from local market',
+    ),
+    Ophaling(
+      user: User(
+        name: 'Jane Smith',
+        email: 'jane@example.com',
+        phoneNumber: '+32 123 45 67 89',
+        location: LatLng(51.0543, 3.7174),
+      ),
+      foodtypes: [FoodType.bread, FoodType.pastries],
+      start: DateTime.now().add(const Duration(hours: 5)),
+      end: DateTime.now().add(const Duration(hours: 7)),
+      description: 'Bakery items from downtown bakery',
+    ),
+    Ophaling(
+      user: User(
+        name: 'Mike Johnson',
+        email: 'mike@example.com',
+        phoneNumber: '+32 123 45 67 89',
+        location: LatLng(51.0543, 3.7174),
+      ),
+      foodtypes: [FoodType.meat, FoodType.fish],
+      start: DateTime.now().add(const Duration(hours: 8)),
+      end: DateTime.now().add(const Duration(hours: 10)),
+      description: 'Fresh meat and fish from seafood market',
+    ),
+  ];
+
+  // Hardcoded locations for the Ophalingen
+  final List<LatLng> _locations = [
+    const LatLng(51.2194, 4.4025), // Antwerp
+    const LatLng(50.8503, 4.3517), // Brussels
+    const LatLng(51.0543, 3.7174), // Ghent
   ];
 
   @override
@@ -83,20 +104,35 @@ class _MapScreenState extends State<MapScreen> {
   }
 
   void _addMarkers() {
-    for (int i = 0; i < _locations.length; i++) {
+    for (int i = 0; i < _ophalingen.length; i++) {
+      final ophaling = _ophalingen[i];
       final location = _locations[i];
+      
       _markers.add(
         Marker(
-          point: location['position'] as LatLng,
-          width: 80,
+          point: location,
+          width: 120,
           height: 80,
           child: GestureDetector(
             onTap: () {
               showDialog(
                 context: context,
                 builder: (context) => AlertDialog(
-                  title: Text(location['title'] as String),
-                  content: Text(location['description'] as String),
+                  title: Text(ophaling.user.name),
+                  content: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text('Description: ${ophaling.description}'),
+                      const SizedBox(height: 8),
+                      Text('Food Types: ${ophaling.foodtypes.map((e) => e.name).join(', ')}'),
+                      const SizedBox(height: 8),
+                      Text('Start: ${DateFormat('HH:mm').format(ophaling.start)}'),
+                      Text('End: ${DateFormat('HH:mm').format(ophaling.end)}'),
+                      const SizedBox(height: 8),
+                      Text('Phone: ${ophaling.user.phoneNumber}'),
+                    ],
+                  ),
                   actions: [
                     TextButton(
                       onPressed: () => Navigator.pop(context),
@@ -106,10 +142,38 @@ class _MapScreenState extends State<MapScreen> {
                 ),
               );
             },
-            child: const Icon(
-              Icons.location_on,
-              color: Colors.red,
-              size: 40,
+            child: Container(
+              padding: const EdgeInsets.all(8),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(12),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.2),
+                    spreadRadius: 1,
+                    blurRadius: 5,
+                    offset: const Offset(0, 2),
+                  ),
+                ],
+              ),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const Icon(
+                    Icons.pallet,
+                    color: Colors.amber,
+                    size: 30,
+                  ),
+                  const SizedBox(height: 4),
+                  Text(
+                    '${DateFormat('HH:mm').format(ophaling.start)} - ${DateFormat('HH:mm').format(ophaling.end)}',
+                    style: const TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
@@ -121,14 +185,14 @@ class _MapScreenState extends State<MapScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Belgium Cities'),
+        title: const Text('Food Collections'),
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
       body: FlutterMap(
         mapController: _mapController,
         options: MapOptions(
-          initialCenter: _locations[0]['position'] as LatLng,
+          initialCenter: _locations[0],
           initialZoom: 8.0,
           onTap: (_, __) {},
         ),
