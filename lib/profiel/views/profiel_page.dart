@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:hackaton2025_6/ophalingen/ophalingen.dart';
+import 'package:hackaton2025_6/package.dart';
 
-class AccountScreen extends StatelessWidget {
-  const AccountScreen({super.key});
+class ProfielPage extends StatelessWidget {
+  const ProfielPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +27,7 @@ class AccountScreen extends StatelessWidget {
                       child: Icon(Icons.person, size: 40),
                     ),
                     Text(
-                      tempUSer.name,
+                      tempUser.name,
                       style: TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
