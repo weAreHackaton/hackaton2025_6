@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hackaton2025_6/package.dart';
 
 class NavigationPage extends StatefulWidget {
   const NavigationPage({super.key});
@@ -11,8 +12,8 @@ class _NavigationPageState extends State<NavigationPage> {
   int _selectedIndex = 0;
 
   final List<Widget> _pages = [
-    Center(child: Text('Pick-up')),
-    Center(child: Text('Instellingen')),
+    const OphalingenPage(),
+    const InstellingenPage(),
   ];
 
   void _onItemTapped(int index) {
@@ -34,7 +35,7 @@ class _NavigationPageState extends State<NavigationPage> {
       selectedIndex: _selectedIndex,
       onDestinationSelected: _onItemTapped,
       destinations: const [
-        NavigationDestination(icon: Icon(Icons.inventory_2), label: 'Pick-up'),
+        NavigationDestination(icon: Icon(Icons.inventory_2), label: 'Ophalingen'),
         NavigationDestination(icon: Icon(Icons.settings), label: 'Instellingen'),
       ],
     );

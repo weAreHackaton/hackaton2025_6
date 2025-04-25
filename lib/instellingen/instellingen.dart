@@ -1,0 +1,1 @@
+export 'views/instellingen_page.dart';
