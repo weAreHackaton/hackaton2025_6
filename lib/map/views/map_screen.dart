@@ -30,7 +30,7 @@ class _MapScreenState extends State<MapScreen> {
       foodtypes: [FoodType.vegetables, FoodType.fruits],
       start: DateTime.now().add(const Duration(hours: 2)),
       end: DateTime.now().add(const Duration(hours: 4)),
-      description: 'Fresh vegetables and fruits from local market',
+      description: 'Verse groenten en fruit van de lokale markt',
     ),
     Ophaling(
       user: User(
@@ -42,7 +42,7 @@ class _MapScreenState extends State<MapScreen> {
       foodtypes: [FoodType.bread, FoodType.pastries],
       start: DateTime.now().add(const Duration(hours: 5)),
       end: DateTime.now().add(const Duration(hours: 7)),
-      description: 'Bakery items from downtown bakery',
+      description: 'Koffiekoeken van de bakker om de hoek',
     ),
     Ophaling(
       user: User(
@@ -54,7 +54,7 @@ class _MapScreenState extends State<MapScreen> {
       foodtypes: [FoodType.meat, FoodType.fish],
       start: DateTime.now().add(const Duration(hours: 8)),
       end: DateTime.now().add(const Duration(hours: 10)),
-      description: 'Fresh meat and fish from seafood market',
+      description: 'Vers vlees en vis uit de carrefour',
     ),
   ];
 
@@ -123,14 +123,14 @@ class _MapScreenState extends State<MapScreen> {
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Description: ${ophaling.description}'),
+                      Text('Beschrijving: ${ophaling.description}'),
                       const SizedBox(height: 8),
-                      Text('Food Types: ${ophaling.foodtypes.map((e) => e.name).join(', ')}'),
+                      Text('Voedsel types: ${ophaling.foodtypes.map((e) => e.name).join(', ')}'),
                       const SizedBox(height: 8),
                       Text('Start: ${DateFormat('HH:mm').format(ophaling.start)}'),
-                      Text('End: ${DateFormat('HH:mm').format(ophaling.end)}'),
+                      Text('Stop: ${DateFormat('HH:mm').format(ophaling.end)}'),
                       const SizedBox(height: 8),
-                      Text('Phone: ${ophaling.user.phoneNumber}'),
+                      Text('Telefoonnummer: ${ophaling.user.phoneNumber}'),
                     ],
                   ),
                   actions: [
@@ -185,7 +185,7 @@ class _MapScreenState extends State<MapScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Food Collections'),
+        title: const Text('Map'),
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
