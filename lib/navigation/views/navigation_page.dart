@@ -35,8 +35,18 @@ class _NavigationPageState extends State<NavigationPage> {
       selectedIndex: _selectedIndex,
       onDestinationSelected: _onItemTapped,
       destinations: const [
-        NavigationDestination(icon: Icon(Icons.inventory_2), label: 'Ophalingen'),
-        NavigationDestination(icon: Icon(Icons.settings), label: 'Instellingen'),
+        NavigationDestination(
+          icon: Icon(Icons.inventory_2_outlined),
+          selectedIcon: Icon(Icons.inventory_2),
+          label: 'Ophalingen',
+          tooltip: '',
+        ),
+        NavigationDestination(
+          icon: Icon(Icons.settings_outlined),
+          selectedIcon: Icon(Icons.settings),
+          label: 'Instellingen',
+          tooltip: '',
+        ),
       ],
     );
   }
