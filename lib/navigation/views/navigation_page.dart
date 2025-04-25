@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hackaton2025_6/map/views/map_screen.dart';
 import 'package:hackaton2025_6/package.dart';
 import 'package:hackaton2025_6/profiel/profile_page.dart';
 
@@ -12,7 +13,11 @@ class NavigationPage extends StatefulWidget {
 class _NavigationPageState extends State<NavigationPage> {
   int _selectedIndex = 0;
 
-  final List<Widget> _pages = [const OphalingenPage(), const AccountScreen()];
+  final List<Widget> _pages = [
+    const OphalingenPage(),
+    MapScreen(),
+    const AccountScreen(),
+  ];
 
   void _onItemTapped(int index) {
     setState(() {
@@ -37,6 +42,12 @@ class _NavigationPageState extends State<NavigationPage> {
           icon: Icon(Icons.pallet),
           selectedIcon: Icon(Icons.pallet),
           label: 'Ophalingen',
+          tooltip: '',
+        ),
+        NavigationDestination(
+          icon: Icon(Icons.map_outlined),
+          selectedIcon: Icon(Icons.map),
+          label: 'Map',
           tooltip: '',
         ),
         NavigationDestination(
