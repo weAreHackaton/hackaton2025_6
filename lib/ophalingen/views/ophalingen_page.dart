@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hackaton2025_6/package.dart';
 
 import 'detail_page.dart';
+import 'InfoCard.dart';
 
 class OphalingenPage extends StatelessWidget {
   const OphalingenPage({super.key});
@@ -9,38 +10,29 @@ class OphalingenPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Sample data for the list
-    final List<Ophaling> items = List.generate(20,
-      (index) => Ophaling(
-        user: User(
-          name: "item $index",
-        )
-      )
-    );
+    final List<InfoCard> ophalingen = [
+     const InfoCard(
+        address: 'Albert Heijn Overpoot',
+        description: 'Donkere grijze bakken',
+        tags: ['meat', 'vegetables', 'freezer'],
+      ),
+      const InfoCard(
+        address: 'Bakker Klaas Wintercircus',
+        description: 'Brood',
+        tags: ['bread', 'pastries'],
+      ),
+      const InfoCard(
+        address: 'Bioplanet Destelbergen',
+        description: 'Groene plooibakken',
+        tags: ['fruit', 'dairy'],
+      ),
+    ];
 
     return Scaffold(
       appBar: AppBar(title: const Text('Ophalingen')),
-      body: ListView.builder(
+      body: ListView(
         padding: const EdgeInsets.all(16.0),
-        itemCount: items.length,
-        itemBuilder: (context, index) {
-          Ophaling item = items[index];
-
-          return Card(
-            margin: const EdgeInsets.only(bottom: 16.0),
-            child: ListTile(
-              title: Text(item.user.name),
-              subtitle: Text('Details for $item'),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => DetailPage(
-                    ophaling: item,
-                  )),
-                );
-              },
-            ),
-          );
-        },
+        children: ophalingen,
       ),
     );
   }
