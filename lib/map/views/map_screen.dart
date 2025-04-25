@@ -30,6 +30,8 @@ class _MapScreenState extends State<MapScreen> {
       start: DateTime.now().add(const Duration(hours: 2)),
       end: DateTime.now().add(const Duration(hours: 4)),
       description: 'Fresh vegetables and fruits from local market',
+      transportType: TransportType.cargoBike,
+      needsRefrigeration: false,
     ),
     Ophaling(
       user: User(
@@ -41,6 +43,8 @@ class _MapScreenState extends State<MapScreen> {
       start: DateTime.now().add(const Duration(hours: 5)),
       end: DateTime.now().add(const Duration(hours: 7)),
       description: 'Bakery items from downtown bakery',
+      transportType: TransportType.minivan,
+      needsRefrigeration: false,
     ),
     Ophaling(
       user: User(
@@ -52,6 +56,8 @@ class _MapScreenState extends State<MapScreen> {
       start: DateTime.now().add(const Duration(hours: 8)),
       end: DateTime.now().add(const Duration(hours: 10)),
       description: 'Fresh meat and fish from seafood market',
+      transportType: TransportType.truck,
+      needsRefrigeration: true,
     ),
   ];
 

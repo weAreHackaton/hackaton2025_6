@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:hackaton2025_6/package.dart';
+import 'package:hackaton2025_6/profiel/models/user.dart';
 
 enum FoodType {
   vegetables,
@@ -13,6 +14,13 @@ enum FoodType {
   other,
 }
 
+enum TransportType {
+  cargoBike,
+  minivan,
+  truck,
+  other,
+}
+
 class Ophaling extends Equatable {
   final User user;
   final List<FoodType> foodtypes;
@@ -20,6 +28,8 @@ class Ophaling extends Equatable {
   final DateTime start;
   final DateTime end;
   final String description;
+  final TransportType transportType;
+  final bool needsRefrigeration;
 
   const Ophaling({
     required this.user,
@@ -27,8 +37,10 @@ class Ophaling extends Equatable {
     required this.start,
     required this.end,
     required this.description,
+    required this.transportType,
+    required this.needsRefrigeration,
   });
 
   @override
-  List<Object?> get props => [user, foodtypes, start, end, description];
+  List<Object?> get props => [user, foodtypes, start, end, description, transportType, needsRefrigeration];
 }

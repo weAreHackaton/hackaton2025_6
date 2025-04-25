@@ -9,15 +9,21 @@ class OphalingenPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<Ophaling> items = List.generate(
-      20,
+    // Sample data for the list
+    final List<Ophaling> items = List.generate(20,
       (index) => Ophaling(
-        user: User(name: "user-$index", email: "mymail", phoneNumber: "9999"),
+        user: User(
+          name: "user-$index",
+          email: "example@example.com",
+          phoneNumber: "+32 123 45 67 89"
+        ),
         foodtypes: [FoodType.vegetables, FoodType.fruits],
         start: DateTime.now().add(Duration(hours: index)),
         end: DateTime.now().add(Duration(hours: index + 2)),
         description: "Sample collection $index",
-      ),
+        transportType: TransportType.values[index % TransportType.values.length],
+        needsRefrigeration: index % 3 == 0, // Every third item needs refrigeration
+      )
     );
 
     return Scaffold(
@@ -36,9 +42,9 @@ class OphalingenPage extends StatelessWidget {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(
-                    builder: (context) => DetailPage(ophaling: item),
-                  ),
+                  MaterialPageRoute(builder: (context) => DetailPage(
+                    ophaling: item,
+                  )),
                 );
               },
             ),
