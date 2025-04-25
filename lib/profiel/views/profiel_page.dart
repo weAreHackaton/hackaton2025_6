@@ -33,8 +33,18 @@ class ProfielPage extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    const SizedBox(height: 16),
-                    const SizedBox(height: 16),
+                    Text(
+                      tempUser.email,
+                      style: TextStyle(
+                        fontSize: 20,
+                      ),
+                    ),
+                    Text(
+                      tempUser.phoneNumber,
+                      style: TextStyle(
+                        fontSize: 20,
+                      ),
+                    ),
                     // Placeholder for DaySchedule
                   ],
                 ),
