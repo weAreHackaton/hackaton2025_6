@@ -14,7 +14,6 @@ class MapScreen extends StatefulWidget {
 }
 
 class _MapScreenState extends State<MapScreen> {
-  Position? currentPosition;
   final MapController _mapController = MapController();
   final List<Marker> _markers = [];
 
@@ -64,39 +63,7 @@ class _MapScreenState extends State<MapScreen> {
   @override
   void initState() {
     super.initState();
-    _getCurrentLocation();
     _addMarkers();
-  }
-
-  void _getCurrentLocation() async {
-    bool serviceEnabled;
-    LocationPermission permission;
-
-    serviceEnabled = await Geolocator.isLocationServiceEnabled();
-    if (!serviceEnabled) {
-      return;
-    }
-
-    permission = await Geolocator.checkPermission();
-    if (permission == LocationPermission.denied) {
-      permission = await Geolocator.requestPermission();
-      if (permission == LocationPermission.denied) {
-        return;
-      }
-    }
-
-    if (permission == LocationPermission.deniedForever) {
-      return;
-    }
-
-    Position position = await Geolocator.getCurrentPosition();
-    setState(() {
-      currentPosition = position;
-      _mapController.move(
-        LatLng(position.latitude, position.longitude),
-        13.0,
-      );
-    });
   }
 
   void _addMarkers() {
@@ -203,10 +170,6 @@ class _MapScreenState extends State<MapScreen> {
             markers: _markers,
           ),
         ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _getCurrentLocation,
-        child: const Icon(Icons.my_location),
       ),
     );
   }
