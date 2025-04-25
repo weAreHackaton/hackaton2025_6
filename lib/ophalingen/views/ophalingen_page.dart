@@ -16,7 +16,7 @@ class OphalingenPage extends StatelessWidget {
           name: "user-$index",
           email: "example@example.com",
 
-          phoneNumber: "+32 123 45 67 89"
+          phoneNumber: "+32 123 45 67 89",
 
           location: LatLng(51.0543, 3.7174), // ghent
 
