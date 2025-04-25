@@ -17,8 +17,18 @@ class Ophaling extends Equatable {
   final User user;
   final List<FoodType> foodtypes;
 
-  const Ophaling({required this.user, required this.foodtypes});
+  final DateTime start;
+  final DateTime end;
+  final String description;
+
+  const Ophaling({
+    required this.user,
+    required this.foodtypes,
+    required this.start,
+    required this.end,
+    required this.description,
+  });
 
   @override
-  List<Object?> get props => [user, foodtypes];
+  List<Object?> get props => [user, foodtypes, start, end, description];
 }
