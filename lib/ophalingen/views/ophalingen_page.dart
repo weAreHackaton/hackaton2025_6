@@ -18,9 +18,7 @@ class OphalingenPage extends StatelessWidget {
     );
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Ophalingen'),
-      ),
+      appBar: AppBar(title: const Text('Ophalingen')),
       body: ListView.builder(
         padding: const EdgeInsets.all(16.0),
         itemCount: items.length,
@@ -47,4 +45,3 @@ class OphalingenPage extends StatelessWidget {
     );
   }
 }
-
