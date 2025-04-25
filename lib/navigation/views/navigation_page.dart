@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hackaton2025_6/map/views/map_screen.dart';
 import 'package:hackaton2025_6/package.dart';
 
 class NavigationPage extends StatefulWidget {
@@ -13,6 +14,7 @@ class _NavigationPageState extends State<NavigationPage> {
 
   final List<Widget> _pages = [
     const OphalingenPage(),
+    MapScreen(),
     const ProfielPage(),
   ];
 
@@ -39,6 +41,12 @@ class _NavigationPageState extends State<NavigationPage> {
           icon: Icon(Icons.pallet),
           selectedIcon: Icon(Icons.pallet),
           label: 'Ophalingen',
+          tooltip: '',
+        ),
+        NavigationDestination(
+          icon: Icon(Icons.map_outlined),
+          selectedIcon: Icon(Icons.map),
+          label: 'Map',
           tooltip: '',
         ),
         NavigationDestination(
