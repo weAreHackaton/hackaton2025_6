@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:hackaton2025_6/package.dart';
 
 class DetailPage extends StatelessWidget {
-  const DetailPage({super.key});
+  final Ophaling ophaling;
+
+  const DetailPage({super.key, required this.ophaling});
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    throw UnimplementedError();
+    return Center(child: Text("Ophaling: $ophaling"));
   }
 }
