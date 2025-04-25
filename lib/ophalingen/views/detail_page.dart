@@ -8,6 +8,19 @@ class DetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text("Ophaling: $ophaling"));
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).colorScheme.surfaceContainerHighest,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+        centerTitle: true,
+        title: Text('Ophaling'),
+      ),
+      body: Center(child: Text(ophaling.toString()))
+    );
   }
 }
