@@ -38,6 +38,8 @@ class Ophaling extends Equatable {
 
   final LatLng location;
 
+  final int maxVolunteers;
+  final int currentVolunteers;
 
   const Ophaling({
     required this.user,
@@ -49,10 +51,23 @@ class Ophaling extends Equatable {
     required this.transportType,
     required this.needsRefrigeration,
 
-    required this.location
+    required this.location,
 
+    required this.maxVolunteers,
+    required this.currentVolunteers,
   });
 
   @override
-  List<Object?> get props => [user, foodtypes, start, end, description, transportType, needsRefrigeration];
+  List<Object?> get props => [
+        user,
+        foodtypes,
+        start,
+        end,
+        description,
+        transportType,
+        needsRefrigeration,
+        location,
+        maxVolunteers,
+        currentVolunteers,
+      ];
 }

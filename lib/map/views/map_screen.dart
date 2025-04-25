@@ -33,6 +33,8 @@ class _MapScreenState extends State<MapScreen> {
       needsRefrigeration: false,
       description: 'Verse groenten en fruit van de lokale markt',
       location: LatLng(51.2194, 4.4025),
+      maxVolunteers: 2,
+      currentVolunteers: 1,
     ),
     Ophaling(
       user: User(
@@ -48,6 +50,8 @@ class _MapScreenState extends State<MapScreen> {
       needsRefrigeration: false,
       description: 'Koffiekoeken van de bakker om de hoek',
       location: LatLng(50.8503, 4.3517),
+      maxVolunteers: 1,
+      currentVolunteers: 0,
     ),
     Ophaling(
       user: User(
@@ -63,6 +67,8 @@ class _MapScreenState extends State<MapScreen> {
       needsRefrigeration: true,
       description: 'Vers vlees en vis uit de carrefour',
       location: LatLng(51.0543, 3.7174),
+      maxVolunteers: 3,
+      currentVolunteers: 2,
     ),
   ];
 
