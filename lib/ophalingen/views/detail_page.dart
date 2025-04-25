@@ -179,7 +179,6 @@ class DetailPage extends StatelessWidget {
                             ophaling.transportType.name.substring(1),
                             style: const TextStyle(fontSize: 14),
                           ),
-                          backgroundColor: Theme.of(context).colorScheme.secondaryContainer,
                         ),
                         if (ophaling.needsRefrigeration) ...[
                           const SizedBox(width: 8),
@@ -189,7 +188,6 @@ class DetailPage extends StatelessWidget {
                               'Refrigerated',
                               style: TextStyle(fontSize: 14),
                             ),
-                            backgroundColor: Theme.of(context).colorScheme.tertiaryContainer,
                           ),
                         ],
                       ],
@@ -222,7 +220,6 @@ class DetailPage extends StatelessWidget {
                             type.name[0].toUpperCase() + type.name.substring(1),
                             style: const TextStyle(fontSize: 14),
                           ),
-                          backgroundColor: Theme.of(context).colorScheme.primaryContainer,
                         );
                       }).toList(),
                     ),
