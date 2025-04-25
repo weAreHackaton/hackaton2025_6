@@ -7,7 +7,7 @@ class ProfielPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(backgroundColor: Colors.transparent, elevation: 0),
+      appBar: AppBar(title: const Text('Profiel')),
       body: SingleChildScrollView(
         child: Center(
           child: Column(
@@ -45,7 +45,12 @@ class ProfielPage extends StatelessWidget {
                         fontSize: 20,
                       ),
                     ),
-                    // Placeholder for DaySchedule
+                    Text(
+                      "${tempUser.location.latitude}° N, ${tempUser.location.longitude}° W",
+                      style: TextStyle(
+                        fontSize: 15,
+                      ),
+                    ),
                   ],
                 ),
               ),

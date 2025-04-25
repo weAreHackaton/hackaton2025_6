@@ -1,6 +1,10 @@
 import 'package:equatable/equatable.dart';
 import 'package:hackaton2025_6/package.dart';
+
 import 'package:hackaton2025_6/profiel/models/user.dart';
+
+import 'package:latlong2/latlong.dart';
+
 
 enum FoodType {
   vegetables,
@@ -28,8 +32,12 @@ class Ophaling extends Equatable {
   final DateTime start;
   final DateTime end;
   final String description;
+
   final TransportType transportType;
   final bool needsRefrigeration;
+
+  final LatLng location;
+
 
   const Ophaling({
     required this.user,
@@ -37,8 +45,12 @@ class Ophaling extends Equatable {
     required this.start,
     required this.end,
     required this.description,
+
     required this.transportType,
     required this.needsRefrigeration,
+
+    required this.location
+
   });
 
   @override
