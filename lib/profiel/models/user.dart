@@ -10,3 +10,5 @@ class User extends Equatable {
   @override
   List<Object?> get props => [name];
 }
+
+const tempUser = User(name: "hi");

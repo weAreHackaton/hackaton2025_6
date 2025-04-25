@@ -36,8 +36,8 @@ class _NavigationPageState extends State<NavigationPage> {
       onDestinationSelected: _onItemTapped,
       destinations: const [
         NavigationDestination(
-          icon: Icon(Icons.inventory_2_outlined),
-          selectedIcon: Icon(Icons.inventory_2),
+          icon: Icon(Icons.pallet),
+          selectedIcon: Icon(Icons.pallet),
           label: 'Ophalingen',
           tooltip: '',
         ),
@@ -51,4 +51,3 @@ class _NavigationPageState extends State<NavigationPage> {
     );
   }
 }
-

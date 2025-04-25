@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hackaton2025_6/package.dart';
 
 class ProfielPage extends StatelessWidget {
   const ProfielPage({super.key});
@@ -8,41 +9,38 @@ class ProfielPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(backgroundColor: Colors.transparent, elevation: 0),
       body: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.only(
-                left: 8,
-                right: 8,
-                top: 8,
-                bottom: 16,
-              ),
-              child: Column(
-                children: [
-                  const CircleAvatar(
-                    radius: 40,
-                    child: Icon(Icons.person, size: 40),
-                  ),
-                  const Text(
-                    'John Doe',
-                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                  ),
-                  const SizedBox(height: 16),
-                  const SizedBox(height: 16),
-                  // Placeholder for DaySchedule
-                  Container(
-                    height: 200,
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.grey),
-                      borderRadius: BorderRadius.circular(8),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.only(
+                  left: 8,
+                  right: 8,
+                  top: 8,
+                  bottom: 16,
+                ),
+                child: Column(
+                  children: [
+                    const CircleAvatar(
+                      radius: 40,
+                      child: Icon(Icons.person, size: 40),
                     ),
-                    child: const Center(child: Text('Day Schedule')),
-                  ),
-                ],
+                    Text(
+                      tempUser.name,
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(height: 16),
+                    const SizedBox(height: 16),
+                    // Placeholder for DaySchedule
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
