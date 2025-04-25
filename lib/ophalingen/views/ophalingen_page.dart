@@ -12,7 +12,9 @@ class OphalingenPage extends StatelessWidget {
     final List<Ophaling> items = List.generate(20,
       (index) => Ophaling(
         user: User(
-          name: "item $index",
+          name: "user-$index",
+          email: "example@example.com",
+          phoneNumber: "+32 123 45 67 89"
         )
       )
     );
