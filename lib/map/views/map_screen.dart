@@ -190,6 +190,9 @@ class _MapScreenState extends State<MapScreen> {
           initialCenter: _ophalingen[0].location,
           initialZoom: 8.0,
           onTap: (_, __) {},
+          interactionOptions: const InteractionOptions(
+            flags: InteractiveFlag.all & ~InteractiveFlag.rotate,
+          ),
         ),
         children: [
           TileLayer(
