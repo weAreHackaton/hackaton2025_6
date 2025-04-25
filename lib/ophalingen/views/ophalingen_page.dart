@@ -6,12 +6,13 @@ class OphalingenPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Sample data for the list
-    final List<String> items = List.generate(20, (index) => 'Item ${index + 1}');
+    final List<String> items = List.generate(
+      20,
+      (index) => 'Item ${index + 1}',
+    );
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Ophalingen'),
-      ),
+      appBar: AppBar(title: const Text('Ophalingen')),
       body: ListView.builder(
         padding: const EdgeInsets.all(16.0),
         itemCount: items.length,
@@ -32,4 +33,3 @@ class OphalingenPage extends StatelessWidget {
     );
   }
 }
-
