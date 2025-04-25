@@ -58,12 +58,11 @@ class DetailPage extends StatelessWidget {
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-           
-
             // Description and User Info Section
             Card(
+              margin: EdgeInsets.zero,
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Column(
@@ -134,6 +133,7 @@ class DetailPage extends StatelessWidget {
 
             // Time Section
             Card(
+              margin: EdgeInsets.zero,
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Column(
@@ -162,6 +162,7 @@ class DetailPage extends StatelessWidget {
 
             // Transport Section
             Card(
+              margin: EdgeInsets.zero,
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Column(
@@ -202,6 +203,7 @@ class DetailPage extends StatelessWidget {
 
             // Food Types Section
             Card(
+              margin: EdgeInsets.zero,
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Column(
