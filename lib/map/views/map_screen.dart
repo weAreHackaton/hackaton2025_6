@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
-import 'package:hackaton2025_6/package.dart';
+import 'package:hackaton2025_6/ophalingen/data/sample_ophalingen.dart';
+import 'package:hackaton2025_6/ophalingen/views/detail_page.dart';
 import 'package:intl/intl.dart';
 
 class MapScreen extends StatefulWidget {
