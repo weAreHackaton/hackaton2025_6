@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hackaton2025_6/package.dart';
+import 'package:intl/intl.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:provider/provider.dart';
 
@@ -53,7 +54,21 @@ class info_card extends StatelessWidget {
                             ],
                         ),
                         const SizedBox(height: 8),
-                        Text('${ophaling.description}\nVrijwilligers: ${ophaling.currentVolunteers}/${ophaling.maxVolunteers}'),
+                        Text('${ophaling.description}'),
+                        const SizedBox(height: 8),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              '${DateFormat('HH:mm').format(ophaling.start)} - ${DateFormat('HH:mm').format(ophaling.end)}',
+                              style: const TextStyle(fontSize: 16),
+                            ),
+                            Text(
+                              '${ophaling.currentVolunteers}/${ophaling.maxVolunteers}',
+                              style: const TextStyle(fontSize: 16),
+                            ),
+                          ],
+                        ),
                         const SizedBox(height: 8),
                         if (ophaling.foodtypes.isNotEmpty)
                             Wrap(
