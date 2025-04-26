@@ -30,6 +30,7 @@ class OphalingenPage extends StatelessWidget {
               address: ophaling.user.name,
               description: '${ophaling.description}\nVrijwilligers: ${ophaling.currentVolunteers}/${ophaling.maxVolunteers}',
               tags: ophaling.foodtypes,
+              userLocation: ophaling.location,
             ),
           );
         },
