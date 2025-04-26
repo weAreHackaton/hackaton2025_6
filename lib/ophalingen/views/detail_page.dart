@@ -1,34 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:hackaton2025_6/ophalingen/models/ophaling.dart';
+import 'package:hackaton2025_6/ophalingen/widgets/food_type_chip.dart';
+import 'package:latlong2/latlong.dart';
 import 'package:intl/intl.dart';
 
 class DetailPage extends StatelessWidget {
   final Ophaling ophaling;
 
   const DetailPage({super.key, required this.ophaling});
-
-  String _getEmojiForFoodType(FoodType type) {
-    switch (type) {
-      case FoodType.vegetables:
-        return '🥬';
-      case FoodType.fruits:
-        return '🍎';
-      case FoodType.meat:
-        return '🥩';
-      case FoodType.fish:
-        return '🐟';
-      case FoodType.dairy:
-        return '🥛';
-      case FoodType.bread:
-        return '🍞';
-      case FoodType.pastries:
-        return '🥐';
-      case FoodType.preparedFood:
-        return '🍱';
-      case FoodType.other:
-        return '📦';
-    }
-  }
 
   String _getEmojiForTransportType(TransportType type) {
     switch (type) {
@@ -47,13 +26,7 @@ class DetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.surfaceContainerHighest,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () => Navigator.pop(context),
-        ),
-        centerTitle: true,
-        title: const Text('Collection Details'),
+        title: const Text('Ophaling Details'),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
@@ -69,25 +42,16 @@ class DetailPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Description',
+                      ophaling.description,
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
-                    const SizedBox(height: 8),
-                    Text(
-                      ophaling.description,
-                      style: Theme.of(context).textTheme.bodyLarge,
-                    ),
-                    const Divider(height: 32),
+                    const SizedBox(height: 16),
+                    const Divider(),
+                    const SizedBox(height: 16),
                     Row(
                       children: [
                         CircleAvatar(
-                          backgroundColor: Theme.of(context).colorScheme.primaryContainer,
-                          child: Text(
-                            ophaling.user.name[0].toUpperCase(),
-                            style: TextStyle(
-                              color: Theme.of(context).colorScheme.onPrimaryContainer,
-                            ),
-                          ),
+                          child: Text(ophaling.user.name[0]),
                         ),
                         const SizedBox(width: 16),
                         Expanded(
@@ -96,32 +60,34 @@ class DetailPage extends StatelessWidget {
                             children: [
                               Text(
                                 ophaling.user.name,
-                                style: Theme.of(context).textTheme.titleMedium,
+                                style: const TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                               Text(
                                 ophaling.user.email,
-                                style: Theme.of(context).textTheme.bodyMedium,
+                                style: const TextStyle(
+                                  fontSize: 14,
+                                  color: Colors.grey,
+                                ),
                               ),
                             ],
                           ),
                         ),
-                        Row(
-                          children: [
-                            IconButton(
-                              onPressed: () {
-                                // TODO: Implement email
-                              },
-                              icon: const Icon(Icons.email),
-                              tooltip: 'Send Email',
-                            ),
-                            IconButton(
-                              onPressed: () {
-                                // TODO: Implement call
-                              },
-                              icon: const Icon(Icons.phone),
-                              tooltip: 'Call',
-                            ),
-                          ],
+                        IconButton(
+                          icon: const Icon(Icons.email),
+                          onPressed: () {
+                            // TODO: Implement email functionality
+                          },
+                          tooltip: 'Send Email',
+                        ),
+                        IconButton(
+                          icon: const Icon(Icons.phone),
+                          onPressed: () {
+                            // TODO: Implement call functionality
+                          },
+                          tooltip: 'Call',
                         ),
                       ],
                     ),
@@ -144,15 +110,9 @@ class DetailPage extends StatelessWidget {
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
                     const SizedBox(height: 8),
-                    Row(
-                      children: [
-                        const Icon(Icons.access_time),
-                        const SizedBox(width: 8),
-                        Text(
-                          '${DateFormat('HH:mm').format(ophaling.start)} - ${DateFormat('HH:mm').format(ophaling.end)}',
-                          style: Theme.of(context).textTheme.bodyLarge,
-                        ),
-                      ],
+                    Text(
+                      '${DateFormat('HH:mm').format(ophaling.start)} - ${DateFormat('HH:mm').format(ophaling.end)}',
+                      style: const TextStyle(fontSize: 16),
                     ),
                   ],
                 ),
@@ -217,15 +177,7 @@ class DetailPage extends StatelessWidget {
                     Wrap(
                       spacing: 8,
                       runSpacing: 8,
-                      children: ophaling.foodtypes.map((type) {
-                        return Chip(
-                          avatar: Text(_getEmojiForFoodType(type)),
-                          label: Text(
-                            type.name[0].toUpperCase() + type.name.substring(1),
-                            style: const TextStyle(fontSize: 14),
-                          ),
-                        );
-                      }).toList(),
+                      children: ophaling.foodtypes.map((type) => FoodTypeChip(foodType: type)).toList(),
                     ),
                   ],
                 ),
