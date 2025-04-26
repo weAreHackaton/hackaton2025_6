@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hackaton2025_6/ophalingen/ophalingen.dart';
-import 'package:hackaton2025_6/ophalingen/widgets/food_type_chip.dart';
-import 'package:hackaton2025_6/profiel/models/user.dart';
+import 'package:hackaton2025_6/package.dart';
 import 'package:latlong2/latlong.dart';
 
 class info_card extends StatelessWidget {
