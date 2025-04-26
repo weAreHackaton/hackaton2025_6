@@ -30,10 +30,10 @@ class _ProfielPageState extends State<ProfielPage> {
   int radius = 5;
 
   final TextEditingController _startTimeController = TextEditingController(
-    text: "Not selected",
+    text: "Niet geselecteerd",
   );
   final TextEditingController _endTimeController = TextEditingController(
-    text: "Not selected",
+    text: "Niet geselecteerd",
   );
 
   @override
@@ -54,22 +54,28 @@ class _ProfielPageState extends State<ProfielPage> {
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: const Text("Select Available Days and Times"),
+          title: const Text("Selecteer beschibare dagen en tijd"),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              SelectWeekDays(
-                key: customWidgetKey,
-                fontSize: 14,
-                fontWeight: FontWeight.w500,
-                days: _days,
-                border: false,
-                boxDecoration: BoxDecoration(
-                  color: Colors.blue.shade100,
-                  borderRadius: BorderRadius.circular(30.0),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: SelectWeekDays(
+                  key: customWidgetKey,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w500,
+                  days: _days,
+                  border: false,
+                  // Use MediaQuery to dynamically adjust the width
+                  width: MediaQuery.of(context).size.width * 0.8, // Adjust as per requirement
+                  boxDecoration: BoxDecoration(
+                    color: Colors.blue.shade100,
+                    borderRadius: BorderRadius.circular(30.0),
+                  ),
+                  onSelect: (values) {},
                 ),
-                onSelect: (values) {},
               ),
+
               const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () async {
@@ -84,14 +90,14 @@ class _ProfielPageState extends State<ProfielPage> {
                     });
                   }
                 },
-                child: const Text("Select Start Time"),
+                child: const Text("Selecteer start tijd"),
               ),
               const SizedBox(height: 10),
               TextField(
                 controller: _startTimeController,
                 readOnly: true,
                 decoration: const InputDecoration(
-                  labelText: "Start Time",
+                  labelText: "Start tijd",
                   border: InputBorder.none,
                   isDense: true,
                 ),
@@ -110,7 +116,7 @@ class _ProfielPageState extends State<ProfielPage> {
                     });
                   }
                 },
-                child: const Text("Select End Time"),
+                child: const Text("Selecteer einde"),
               ),
               const SizedBox(height: 10),
               TextField(
@@ -215,7 +221,7 @@ class _ProfielPageState extends State<ProfielPage> {
                       onPressed: () {
                         _openDayTimePicker(context);
                       },
-                      child: const Text("Select Available Dates"),
+                      child: const Text("Selecteer beschikbaar dagen"),
                     ),
                     ...selectedDayTimes.map((dt) {
                       final day = dt.day.dayKey.capitalize();
