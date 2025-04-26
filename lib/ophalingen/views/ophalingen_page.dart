@@ -10,7 +10,7 @@ class OphalingenPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Ophalingen'),
+        title: const Text('Beschikbare Ophalingen'),
       ),
       body: ListView.builder(
         itemCount: SampleOphalingen.ophalingen.length,
