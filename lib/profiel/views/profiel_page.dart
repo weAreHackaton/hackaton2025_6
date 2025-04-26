@@ -63,19 +63,20 @@ class _ProfielPageState extends State<ProfielPage> {
             children: [
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: SelectWeekDays(
-                  key: customWidgetKey,
-                  fontSize: 11,
-                  fontWeight: FontWeight.w500,
-                  days: _days,
-                  border: false,
-                  // Use MediaQuery to dynamically adjust the width
-                  width: MediaQuery.of(context).size.width * 0.8, // Adjust as per requirement
-                  boxDecoration: BoxDecoration(
-                    color: Colors.blue.shade100,
-                    borderRadius: BorderRadius.circular(30.0),
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: SelectWeekDays(
+                    key: customWidgetKey,
+                    fontSize: MediaQuery.of(context).size.width < 350 ? 10 : 11,
+                    fontWeight: FontWeight.w500,
+                    days: _days,
+                    border: false,
+                    boxDecoration: BoxDecoration(
+                      color: const Color.fromARGB(255, 57, 124, 67),
+                      borderRadius: BorderRadius.circular(30.0),
+                    ),
+                    onSelect: (values) {},
                   ),
-                  onSelect: (values) {},
                 ),
               ),
 
