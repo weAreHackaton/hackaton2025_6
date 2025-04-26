@@ -4,7 +4,6 @@ import 'package:latlong2/latlong.dart';
 import 'package:intl/intl.dart';
 
 import 'detail_page.dart';
-import 'InfoCard.dart';
 
 class OphalingenPage extends StatelessWidget {
   const OphalingenPage({super.key});
@@ -39,7 +38,7 @@ class OphalingenPage extends StatelessWidget {
     final List<Ophaling> ophalingen = List.generate(
       20,
       (index) => Ophaling(
-        user: User(
+         user: User(
           name: businessNames[index],
           email: 'contact@${businessNames[index].toLowerCase().replaceAll(' ', '')}.be',
           phoneNumber: '+32 123 45 67 89',

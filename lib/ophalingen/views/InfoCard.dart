@@ -6,13 +6,14 @@ class InfoCard extends StatelessWidget {
     final List<String> tags;
 
     const InfoCard({
-        Key? key,
+        super.key,
         required this.address,
         required this.description,
         this.tags = const [],
-    }) : super(key: key);
+    });
 
-Widget build(BuildContext context) {
+@override
+  Widget build(BuildContext context) {
     return Card(
       elevation: 3,
       margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
