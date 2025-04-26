@@ -72,7 +72,7 @@ class _ProfielPageState extends State<ProfielPage> {
                     days: _days,
                     border: false,
                     boxDecoration: BoxDecoration(
-                      color: Colors.blue.shade100,
+                      color: const Color.fromARGB(255, 57, 124, 67),
                       borderRadius: BorderRadius.circular(30.0),
                     ),
                     onSelect: (values) {},
