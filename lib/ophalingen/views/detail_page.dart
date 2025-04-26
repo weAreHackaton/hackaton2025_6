@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hackaton2025_6/ophalingen/models/ophaling.dart';
 import 'package:hackaton2025_6/ophalingen/widgets/food_type_chip.dart';
-import 'package:latlong2/latlong.dart';
 import 'package:intl/intl.dart';
 
 class DetailPage extends StatelessWidget {

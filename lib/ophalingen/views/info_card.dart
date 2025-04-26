@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:hackaton2025_6/ophalingen/ophalingen.dart';
 import 'package:hackaton2025_6/ophalingen/widgets/food_type_chip.dart';
 
-class InfoCard extends StatelessWidget {
+class info_card extends StatelessWidget {
     final String address;
     final String description;
     final List<FoodType> tags;
 
-    const InfoCard({
+    const info_card({
         super.key,
         required this.address,
         required this.description,
@@ -25,9 +25,9 @@ class InfoCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('$address', style: Theme.of(context).textTheme.titleMedium),
+            Text(address, style: Theme.of(context).textTheme.titleMedium),
             const SizedBox(height: 8),
-            Text('$description'),
+            Text(description),
             const SizedBox(height: 8),
             if (tags.isNotEmpty)
               Wrap(
