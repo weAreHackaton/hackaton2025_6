@@ -63,6 +63,36 @@ class Ophaling extends Equatable {
     required this.currentVolunteers,
   });
 
+  Ophaling copyWith({
+    String? id,
+    User? user,
+    List<FoodType>? foodtypes,
+    DateTime? start,
+    DateTime? end,
+    String? description,
+    TransportType? transportType,
+    bool? needsRefrigeration,
+    bool? isRegular,
+    LatLng? location,
+    int? maxVolunteers,
+    int? currentVolunteers,
+  }) {
+    return Ophaling(
+      id: id ?? this.id,
+      user: user ?? this.user,
+      foodtypes: foodtypes ?? this.foodtypes,
+      start: start ?? this.start,
+      end: end ?? this.end,
+      description: description ?? this.description,
+      transportType: transportType ?? this.transportType,
+      needsRefrigeration: needsRefrigeration ?? this.needsRefrigeration,
+      isRegular: isRegular ?? this.isRegular,
+      location: location ?? this.location,
+      maxVolunteers: maxVolunteers ?? this.maxVolunteers,
+      currentVolunteers: currentVolunteers ?? this.currentVolunteers,
+    );
+  }
+
   @override
   List<Object?> get props => [
     id,

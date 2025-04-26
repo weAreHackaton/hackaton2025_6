@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:hackaton2025_6/package.dart';
+import 'package:provider/provider.dart';
 
 class MapScreen extends StatefulWidget {
   const MapScreen({super.key});
@@ -12,19 +13,13 @@ class MapScreen extends StatefulWidget {
 class _MapScreenState extends State<MapScreen> {
   final MapController _mapController = MapController();
   String? _openMarkerId;
-  late final LatLngBounds _bounds;
-
-  @override
-  void initState() {
-    super.initState();
-    // Calculate bounds once during initialization
-    final points = SampleOphalingen.ophalingen.map((o) => o.location).toList();
-    _bounds = LatLngBounds.fromPoints(points);
-  }
 
   @override
   Widget build(BuildContext context) {
-    final ophalingen = SampleOphalingen.ophalingen; // Cache the list
+    final ophalingen = context.read<OphalingRepository>().getTempOphalingen(); // Cache the list
+
+    final points = ophalingen.map((o) => o.location).toList();
+    final bounds = LatLngBounds.fromPoints(points);
 
     return Scaffold(
       appBar: AppBar(
@@ -36,7 +31,7 @@ class _MapScreenState extends State<MapScreen> {
         mapController: _mapController,
         options: MapOptions(
           initialCameraFit: CameraFit.bounds(
-            bounds: _bounds,
+            bounds: bounds,
             padding: const EdgeInsets.all(75),
           ),
           onTap: (_, __) => setState(() => _openMarkerId = null),

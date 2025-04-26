@@ -4,10 +4,10 @@ import 'package:day_picker/model/day_in_week.dart';
 import 'package:flutter/material.dart';
 
 class UserRepository {
-  late User tempUser;
+  late User _tempUser;
 
   UserRepository() {
-    tempUser = User(
+    _tempUser = User(
       name: "Fhilip François",
       email: "hackaton@letssavefood.com",
       phoneNumber: "+32 123 45 67 89",
@@ -23,10 +23,10 @@ class UserRepository {
   }
 
   void updateTempUser(User newUser) {
-    tempUser = newUser;
+    _tempUser = newUser;
   }
 
   User getTempUser() {
-    return tempUser;
+    return _tempUser;
   }
 }

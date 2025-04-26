@@ -6,9 +6,16 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
 
   runApp(
-    Provider(
-      create: (context) => UserRepository(), // Provide UserRepository
-      child: const HackatonApp(), // Now HackatonApp and its children can access it
+    MultiProvider(
+      providers: [
+        Provider(
+          create: (context) => UserRepository()
+        ),
+        Provider(
+          create: (context) => OphalingRepository()
+        ),
+      ],
+      child: const HackatonApp(),
     ),
   );
 }
