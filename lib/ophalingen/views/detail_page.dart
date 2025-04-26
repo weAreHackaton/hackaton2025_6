@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:hackaton2025_6/map/functions/functions.dart';
 import 'package:hackaton2025_6/ophalingen/models/ophaling.dart';
 import 'package:hackaton2025_6/ophalingen/widgets/food_type_chip.dart';
+import 'package:hackaton2025_6/package.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:intl/intl.dart';
 
@@ -26,7 +28,7 @@ class DetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Ophaling Details'),
+        title: const Text('Ophaling details'),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
@@ -106,7 +108,7 @@ class DetailPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Collection Time',
+                      'Collection time',
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
                     const SizedBox(height: 8),
@@ -129,7 +131,7 @@ class DetailPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Transport',
+                      'Transport (${getDistanceFormatted(ophaling.location, tempUser.location)})',
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
                     const SizedBox(height: 8),
@@ -170,7 +172,7 @@ class DetailPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Food Types',
+                      'Food types',
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
                     const SizedBox(height: 8),
