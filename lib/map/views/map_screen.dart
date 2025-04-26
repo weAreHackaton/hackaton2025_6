@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:hackaton2025_6/ophalingen/models/ophaling.dart';
+import 'package:hackaton2025_6/ophalingen/views/detail_page.dart';
 import 'package:hackaton2025_6/profiel/models/user.dart';
 import 'package:intl/intl.dart';
 
@@ -88,30 +89,10 @@ class _MapScreenState extends State<MapScreen> {
           height: 80,
           child: GestureDetector(
             onTap: () {
-              showDialog(
-                context: context,
-                builder: (context) => AlertDialog(
-                  title: Text(ophaling.user.name),
-                  content: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text('Beschrijving: ${ophaling.description}'),
-                      const SizedBox(height: 8),
-                      Text('Voedsel types: ${ophaling.foodtypes.map((e) => e.name).join(', ')}'),
-                      const SizedBox(height: 8),
-                      Text('Start: ${DateFormat('HH:mm').format(ophaling.start)}'),
-                      Text('Stop: ${DateFormat('HH:mm').format(ophaling.end)}'),
-                      const SizedBox(height: 8),
-                      Text('Telefoonnummer: ${ophaling.user.phoneNumber}'),
-                    ],
-                  ),
-                  actions: [
-                    TextButton(
-                      onPressed: () => Navigator.pop(context),
-                      child: const Text('Sluiten'),
-                    ),
-                  ],
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => DetailPage(ophaling: ophaling),
                 ),
               );
             },
