@@ -25,6 +25,8 @@ class FoodTypeChip extends StatelessWidget {
         return '🥐';
       case FoodType.dairy:
         return '🥛';
+      case FoodType.preparedFood:
+        return '🍱';
       case FoodType.other:
         return '🍽️';
     }
