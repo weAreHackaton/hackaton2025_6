@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hackaton2025_6/map/views/map_screen.dart';
 import 'package:hackaton2025_6/package.dart';
 
 class NavigationPage extends StatefulWidget {
