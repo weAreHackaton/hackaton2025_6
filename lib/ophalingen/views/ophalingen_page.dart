@@ -79,7 +79,7 @@ class OphalingenPage extends StatelessWidget {
             },
             child: InfoCard(
               address: ophaling.user.name,
-              description: ophaling.description,
+              description: '${ophaling.description}\nVrijwilligers: ${ophaling.currentVolunteers}/${ophaling.maxVolunteers}',
               tags: ophaling.foodtypes,
             ),
           );
