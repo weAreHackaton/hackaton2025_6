@@ -9,7 +9,7 @@ class SampleOphalingen {
         name: 'Bakker Klaas',
         email: 'contact@bakkerklaas.be',
         phoneNumber: '+32 123 45 67 89',
-        location: LatLng(51.0543, 3.7174),
+        location: const LatLng(51.0543, 3.7174), // Gent Centrum
       ),
       foodtypes: [FoodType.brood, FoodType.gebakjes],
       start: DateTime.now().add(const Duration(hours: 2)),
@@ -17,7 +17,7 @@ class SampleOphalingen {
       transportType: TransportType.fiets,
       needsRefrigeration: false,
       description: 'Zak met pistolets en enkele broden',
-      location: LatLng(51.2194, 4.4025),
+      location: const LatLng(51.0543, 3.7174), // Gent Centrum
       maxVolunteers: 2,
       currentVolunteers: 1,
     ),
@@ -26,7 +26,7 @@ class SampleOphalingen {
         name: 'Aldi',
         email: 'contact@aldi.be',
         phoneNumber: '+32 123 45 67 89',
-        location: LatLng(51.0543, 3.7174),
+        location: const LatLng(51.0432, 3.7101), // Gent Zuid
       ),
       foodtypes: [FoodType.groenten, FoodType.fruit],
       start: DateTime.now().add(const Duration(hours: 5)),
@@ -34,7 +34,7 @@ class SampleOphalingen {
       transportType: TransportType.minibus,
       needsRefrigeration: false,
       description: 'Verse groenten en fruit',
-      location: LatLng(50.8503, 4.3517),
+      location: const LatLng(51.0432, 3.7101), // Gent Zuid
       maxVolunteers: 1,
       currentVolunteers: 0,
     ),
@@ -43,7 +43,7 @@ class SampleOphalingen {
         name: 'Carrefour',
         email: 'contact@carrefour.be',
         phoneNumber: '+32 123 45 67 89',
-        location: LatLng(51.0543, 3.7174),
+        location: const LatLng(51.0621, 3.7278), // Gent Noord
       ),
       foodtypes: [FoodType.vlees, FoodType.vis],
       start: DateTime.now().add(const Duration(hours: 8)),
@@ -51,7 +51,7 @@ class SampleOphalingen {
       transportType: TransportType.vrachtwagen,
       needsRefrigeration: true,
       description: 'Vers vlees en vis',
-      location: LatLng(51.0543, 3.7174),
+      location: const LatLng(51.0621, 3.7278), // Gent Noord
       maxVolunteers: 3,
       currentVolunteers: 2,
     ),
@@ -60,7 +60,7 @@ class SampleOphalingen {
         name: 'Delhaize',
         email: 'info@delhaize.be',
         phoneNumber: '+32 234 56 78 90',
-        location: LatLng(50.8798, 4.7005),
+        location: const LatLng(51.0389, 3.7302), // Gent West
       ),
       foodtypes: [FoodType.zuivel, FoodType.groenten],
       start: DateTime.now().add(const Duration(hours: 3)),
@@ -68,7 +68,7 @@ class SampleOphalingen {
       transportType: TransportType.minibus,
       needsRefrigeration: true,
       description: 'Melkproducten en verse sla',
-      location: LatLng(50.8798, 4.7005),
+      location: const LatLng(51.0389, 3.7302), // Gent West
       maxVolunteers: 2,
       currentVolunteers: 1,
     ),
@@ -77,7 +77,7 @@ class SampleOphalingen {
         name: 'Lidl',
         email: 'support@lidl.be',
         phoneNumber: '+32 345 67 89 01',
-        location: LatLng(51.0535, 3.7304),
+        location: const LatLng(51.0486, 3.6978), // Gent Oost
       ),
       foodtypes: [FoodType.fruit, FoodType.brood],
       start: DateTime.now().add(const Duration(hours: 6)),
@@ -85,7 +85,7 @@ class SampleOphalingen {
       transportType: TransportType.fiets,
       needsRefrigeration: false,
       description: 'Brood en fruit overschotten',
-      location: LatLng(51.0535, 3.7304),
+      location: const LatLng(51.0486, 3.6978), // Gent Oost
       maxVolunteers: 1,
       currentVolunteers: 0,
     ),
@@ -94,7 +94,7 @@ class SampleOphalingen {
         name: 'De Sterre resto',
         email: 'resto_sterre@ugent.be',
         phoneNumber: '+32 987 65 43 21',
-        location: LatLng(50.8503, 4.3517),
+        location: const LatLng(51.0225, 3.7101), // Gent Zuid-Oost
       ),
       foodtypes: [FoodType.bereid, FoodType.groenten],
       start: DateTime.now().add(const Duration(hours: 10)),
@@ -102,7 +102,7 @@ class SampleOphalingen {
       transportType: TransportType.vrachtwagen,
       needsRefrigeration: false,
       description: 'Overschot van soep en rauwkost',
-      location: LatLng(50.8303, 4.3517),
+      location: const LatLng(51.0225, 3.7101), // Gent Zuid-Oost
       maxVolunteers: 2,
       currentVolunteers: 2,
     ),
@@ -111,7 +111,7 @@ class SampleOphalingen {
         name: 'Panos',
         email: 'support@panos.be',
         phoneNumber: '+32 937 658 42 11',
-        location: LatLng(50.8503, 4.0517),
+        location: const LatLng(51.0678, 3.7101), // Gent Noord-Oost
       ),
       foodtypes: [FoodType.gebakjes],
       start: DateTime.now().add(const Duration(hours: 10)),
@@ -119,16 +119,16 @@ class SampleOphalingen {
       transportType: TransportType.vrachtwagen,
       needsRefrigeration: false,
       description: 'Overschot gebakjes',
-      location: LatLng(50.8503, 4.3408),
+      location: const LatLng(51.0678, 3.7101), // Gent Noord-Oost
       maxVolunteers: 2,
       currentVolunteers: 2,
     ),
-        Ophaling(
+    Ophaling(
       user: User(
         name: 'BioPlanet',
         email: 'contact@bioplanet.be',
         phoneNumber: '+32 123 44 55 66',
-        location: LatLng(50.8206, 4.3572),
+        location: const LatLng(51.0422, 3.7402), // Gent Zuid-West
       ),
       foodtypes: [FoodType.groenten, FoodType.fruit, FoodType.zuivel],
       start: DateTime.now().add(const Duration(hours: 7)),
@@ -136,7 +136,7 @@ class SampleOphalingen {
       transportType: TransportType.minibus,
       needsRefrigeration: true,
       description: 'Biologische producten',
-      location: LatLng(50.8476, 4.3572),
+      location: const LatLng(51.0422, 3.7402), // Gent Zuid-West
       maxVolunteers: 3,
       currentVolunteers: 1,
     ),
@@ -145,7 +145,7 @@ class SampleOphalingen {
         name: 'Colruyt',
         email: 'service@colruyt.be',
         phoneNumber: '+32 222 33 44 55',
-        location: LatLng(50.8267, 4.3510),
+        location: const LatLng(51.0578, 3.6978), // Gent Noord-Oost
       ),
       foodtypes: [FoodType.vlees, FoodType.vis],
       start: DateTime.now().add(const Duration(hours: 4)),
@@ -153,7 +153,7 @@ class SampleOphalingen {
       transportType: TransportType.vrachtwagen,
       needsRefrigeration: true,
       description: 'Vlees en vis voor koeling',
-      location: LatLng(50.8267, 4.3510),
+      location: const LatLng(51.0578, 3.6978), // Gent Noord-Oost
       maxVolunteers: 2,
       currentVolunteers: 1,
     ),
@@ -162,7 +162,7 @@ class SampleOphalingen {
         name: 'Spar',
         email: 'spar@spar.be',
         phoneNumber: '+32 321 54 76 98',
-        location: LatLng(51.0543, 3.7174),
+        location: const LatLng(51.0478, 3.7278), // Gent Centrum-Oost
       ),
       foodtypes: [FoodType.groenten, FoodType.brood],
       start: DateTime.now().add(const Duration(hours: 12)),
@@ -170,16 +170,16 @@ class SampleOphalingen {
       transportType: TransportType.fiets,
       needsRefrigeration: false,
       description: 'Vers brood en groenten',
-      location: LatLng(51.0543, 3.7174),
+      location: const LatLng(51.0478, 3.7278), // Gent Centrum-Oost
       maxVolunteers: 2,
       currentVolunteers: 2,
     ),
-        Ophaling(
+    Ophaling(
       user: User(
         name: 'Bloch',
         email: 'contact@bloch.be',
         phoneNumber: '+32 183 22 47 09',
-        location: LatLng(51.0543, 3.7274),
+        location: const LatLng(51.0333, 3.7001), // Gent Zuid-Oost
       ),
       foodtypes: [FoodType.brood, FoodType.gebakjes],
       start: DateTime.now().add(const Duration(hours: 2)),
@@ -187,7 +187,7 @@ class SampleOphalingen {
       transportType: TransportType.fiets,
       needsRefrigeration: false,
       description: 'Meerdere broden en enkele gebakken',
-      location: LatLng(51.2194, 4.4025),
+      location: const LatLng(51.0333, 3.7001), // Gent Zuid-Oost
       maxVolunteers: 2,
       currentVolunteers: 1,
     ),
@@ -196,7 +196,7 @@ class SampleOphalingen {
         name: 'UGent UZ',
         email: 'UZ@ugent.be',
         phoneNumber: '+32 182 63 23 27',
-        location: LatLng(50.8503, 4.3517),
+        location: const LatLng(51.0225, 3.7101), // Gent Zuid-Oost
       ),
       foodtypes: [FoodType.bereid, FoodType.groenten],
       start: DateTime.now().add(const Duration(hours: 10)),
@@ -204,7 +204,7 @@ class SampleOphalingen {
       transportType: TransportType.vrachtwagen,
       needsRefrigeration: false,
       description: 'Overschot van gerechten en rauwkost',
-      location: LatLng(50.8303, 4.3517),
+      location: const LatLng(51.0225, 3.7101), // Gent Zuid-Oost
       maxVolunteers: 2,
       currentVolunteers: 2,
     ),
