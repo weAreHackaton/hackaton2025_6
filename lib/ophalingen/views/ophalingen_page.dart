@@ -27,10 +27,7 @@ class OphalingenPage extends StatelessWidget {
               );
             },
             child: info_card(
-              address: ophaling.user.name,
-              description: '${ophaling.description}\nVrijwilligers: ${ophaling.currentVolunteers}/${ophaling.maxVolunteers}',
-              tags: ophaling.foodtypes,
-              userLocation: ophaling.location,
+              ophaling: ophaling,
             ),
           );
         },

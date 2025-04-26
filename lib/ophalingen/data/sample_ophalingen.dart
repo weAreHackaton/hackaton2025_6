@@ -21,6 +21,45 @@ class SampleOphalingen {
       location: const LatLng(51.0543, 3.7174), // Gent Centrum
       maxVolunteers: 2,
       currentVolunteers: 1,
+      isRegular: true,
+    ),
+    Ophaling(
+      id: "121212121",
+      user: User(
+        name: 'Debbie',
+        email: 'debbie1934@hotmail.be',
+        phoneNumber: '+32 103 49 37 19',
+        location: const LatLng(51.0535, 3.7150),
+      ),
+      foodtypes: [FoodType.bereid],
+      start: DateTime.now().add(const Duration(hours: 2)),
+      end: DateTime.now().add(const Duration(hours: 4)),
+      transportType: TransportType.fiets,
+      needsRefrigeration: false,
+      description: 'Pot soep',
+      location: const LatLng(51.0535, 3.7150),
+      maxVolunteers: 1,
+      currentVolunteers: 0,
+      isRegular: false,
+    ),
+    Ophaling(
+      id: "1212fdfd2121",
+      user: User(
+        name: 'Buurtcentrum Gentbrugge',
+        email: 'buurtcentrum@gentbrugge.be',
+        phoneNumber: '+32 123 43 67 19',
+        location: const LatLng(51.0490, 3.7120),
+      ),
+      foodtypes: [FoodType.bereid, FoodType.gebakjes],
+      start: DateTime.now().add(const Duration(hours: 2)),
+      end: DateTime.now().add(const Duration(hours: 4)),
+      transportType: TransportType.fiets,
+      needsRefrigeration: false,
+      description: 'Maaltijden en gebak',
+      location: const LatLng(51.0490, 3.7120),
+      maxVolunteers: 2,
+      currentVolunteers: 0,
+      isRegular: false,
     ),
     Ophaling(
       id: "def",
@@ -39,6 +78,7 @@ class SampleOphalingen {
       location: const LatLng(51.0432, 3.7101), // Gent Zuid
       maxVolunteers: 1,
       currentVolunteers: 0,
+      isRegular: true,
     ),
     Ophaling(
       id: "ghi",
@@ -57,6 +97,26 @@ class SampleOphalingen {
       location: const LatLng(51.0621, 3.7278), // Gent Noord
       maxVolunteers: 3,
       currentVolunteers: 2,
+      isRegular: true,
+    ),
+    Ophaling(
+      id: "12fdfs12fdfd2121",
+      user: User(
+        name: 'Alfonsus',
+        email: 'Alfonsuske@hotmail.be',
+        phoneNumber: '+32 133 45 58 09',
+        location: const LatLng(51.0435, 3.7278),
+      ),
+      foodtypes: [FoodType.groenten],
+      start: DateTime.now().add(const Duration(hours: 2)),
+      end: DateTime.now().add(const Duration(hours: 4)),
+      transportType: TransportType.fiets,
+      needsRefrigeration: false,
+      description: 'verse groenten uit de tuin',
+      location: const LatLng(51.0435, 3.7278),
+      maxVolunteers: 1,
+      currentVolunteers: 0,
+      isRegular: false,
     ),
     Ophaling(
       id: "jkl",
@@ -75,6 +135,7 @@ class SampleOphalingen {
       location: const LatLng(51.0389, 3.7302), // Gent West
       maxVolunteers: 2,
       currentVolunteers: 1,
+      isRegular: true,
     ),
     Ophaling(
       id: "mno",
@@ -93,6 +154,7 @@ class SampleOphalingen {
       location: const LatLng(51.0486, 3.6978), // Gent Oost
       maxVolunteers: 1,
       currentVolunteers: 0,
+      isRegular: true,
     ),
     Ophaling(
       id: "pqr",
@@ -109,8 +171,9 @@ class SampleOphalingen {
       needsRefrigeration: false,
       description: 'Overschot van soep en rauwkost',
       location: const LatLng(51.0225, 3.7101), // Gent Zuid-Oost
-      maxVolunteers: 2,
+      maxVolunteers: 3,
       currentVolunteers: 2,
+      isRegular: true,
     ),
     Ophaling(
       id: "stu",
@@ -128,7 +191,27 @@ class SampleOphalingen {
       description: 'Overschot gebakjes',
       location: const LatLng(51.0678, 3.7101), // Gent Noord-Oost
       maxVolunteers: 2,
-      currentVolunteers: 2,
+      currentVolunteers: 0,
+      isRegular: true,
+    ),
+    Ophaling(
+      id: "1212fdfa1",
+      user: User(
+        name: 'Marjan',
+        email: 'Marjan@hotmail.be',
+        phoneNumber: '+32 127 45 21 14',
+        location: const LatLng(51.0600, 3.7040),
+      ),
+      foodtypes: [FoodType.gebakjes],
+      start: DateTime.now().add(const Duration(hours: 2)),
+      end: DateTime.now().add(const Duration(hours: 4)),
+      transportType: TransportType.fiets,
+      needsRefrigeration: false,
+      description: 'Taart overschot van babyborrel',
+      location: const LatLng(51.0600, 3.7040),
+      maxVolunteers: 1,
+      currentVolunteers: 0,
+      isRegular: false,
     ),
     Ophaling(
       id: "vwx",
@@ -147,6 +230,7 @@ class SampleOphalingen {
       location: const LatLng(51.0422, 3.7402), // Gent Zuid-West
       maxVolunteers: 3,
       currentVolunteers: 1,
+      isRegular: true,
     ),
     Ophaling(
       id: "yz0",
@@ -165,6 +249,7 @@ class SampleOphalingen {
       location: const LatLng(51.0578, 3.6978), // Gent Noord-Oost
       maxVolunteers: 2,
       currentVolunteers: 1,
+      isRegular: true,
     ),
     Ophaling(
       id: "123",
@@ -182,7 +267,8 @@ class SampleOphalingen {
       description: 'Vers brood en groenten',
       location: const LatLng(51.0478, 3.7278), // Gent Centrum-Oost
       maxVolunteers: 2,
-      currentVolunteers: 2,
+      currentVolunteers: 1,
+      isRegular: true,
     ),
     Ophaling(
       id: "456",
@@ -201,6 +287,7 @@ class SampleOphalingen {
       location: const LatLng(51.0333, 3.7001), // Gent Zuid-Oost
       maxVolunteers: 2,
       currentVolunteers: 1,
+      isRegular: true,
     ),
     Ophaling(
       id: "789",
@@ -217,8 +304,9 @@ class SampleOphalingen {
       needsRefrigeration: false,
       description: 'Overschot van gerechten en rauwkost',
       location: const LatLng(51.0225, 3.7101), // Gent Zuid-Oost
-      maxVolunteers: 2,
+      maxVolunteers: 3,
       currentVolunteers: 2,
+      isRegular: true,
     ),
   ];
 } 

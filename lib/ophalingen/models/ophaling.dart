@@ -37,6 +37,7 @@ class Ophaling extends Equatable {
 
   final TransportType transportType;
   final bool needsRefrigeration;
+  final bool isRegular;
 
   final LatLng location;
 
@@ -54,6 +55,7 @@ class Ophaling extends Equatable {
 
     required this.transportType,
     required this.needsRefrigeration,
+    required this.isRegular,
 
     required this.location,
 

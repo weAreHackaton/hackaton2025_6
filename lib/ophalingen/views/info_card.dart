@@ -3,17 +3,11 @@ import 'package:hackaton2025_6/package.dart';
 import 'package:latlong2/latlong.dart';
 
 class info_card extends StatelessWidget {
-    final String address;
-    final String description;
-    final List<FoodType> tags;
-    final LatLng userLocation;
+    final Ophaling ophaling;
 
     const info_card({
         super.key,
-        required this.address,
-        required this.description,
-        required this.userLocation,
-        this.tags = const [],
+        required this.ophaling,
     });
 
     String getDistanceFormatted(LatLng location1, LatLng location2) {
@@ -43,12 +37,12 @@ class info_card extends StatelessWidget {
                             children: [
                                 Expanded(
                                     child: Text(
-                                        address,
+                                        ophaling.user.name,
                                         style: Theme.of(context).textTheme.titleMedium,
                                     ),
                                 ),
                                 Text(
-                                    getDistanceFormatted(tempUser.location, userLocation),
+                                    getDistanceFormatted(tempUser.location, ophaling.location),
                                     style: Theme.of(context).textTheme.bodySmall?.copyWith(
                                         color: Colors.grey[600],
                                     ),
@@ -56,13 +50,13 @@ class info_card extends StatelessWidget {
                             ],
                         ),
                         const SizedBox(height: 8),
-                        Text(description),
+                        Text('${ophaling.description}\nVrijwilligers: ${ophaling.currentVolunteers}/${ophaling.maxVolunteers}'),
                         const SizedBox(height: 8),
-                        if (tags.isNotEmpty)
+                        if (ophaling.foodtypes.isNotEmpty)
                             Wrap(
                                 spacing: 8,
                                 runSpacing: -8,
-                                children: tags.map((foodType) => FoodTypeChip(foodType: foodType)).toList(),
+                                children: ophaling.foodtypes.map((foodType) => FoodTypeChip(foodType: foodType)).toList(),
                             ),
                     ],
                 ),
