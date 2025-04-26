@@ -12,6 +12,7 @@ class HackatonApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.lightGreen),
       ),
+      debugShowCheckedModeBanner: false,
       home: const NavigationPage(),
     );
   }
