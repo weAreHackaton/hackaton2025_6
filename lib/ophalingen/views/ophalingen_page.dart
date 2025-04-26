@@ -10,13 +10,37 @@ class OphalingenPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // List of business/store names
+    final List<String> businessNames = [
+      'Bakker X',
+      'Aldi',
+      'Carrefour',
+      'Lidl',
+      'Delhaize',
+      'Colruyt',
+      'Jumbo',
+      'Albert Heijn',
+      'Spar',
+      'Coop',
+      'Bakkerij De Smet',
+      'Slagerij Van Damme',
+      'Viswinkel De Zee',
+      'Groenteboer Van Dijk',
+      'Koffiebar Java',
+      'Restaurant De Keuken',
+      'Cafetaria De Friet',
+      'Patisserie Sweet',
+      'Supermarkt Plus',
+      'Marktkraam Groenten'
+    ];
+
     // Generate sample data
     final List<Ophaling> ophalingen = List.generate(
       20,
       (index) => Ophaling(
         user: User(
-          name: 'User $index',
-          email: 'user$index@example.com',
+          name: businessNames[index],
+          email: 'contact@${businessNames[index].toLowerCase().replaceAll(' ', '')}.be',
           phoneNumber: '+32 123 45 67 89',
           location: LatLng(51.0543, 3.7174),
         ),
@@ -26,12 +50,12 @@ class OphalingenPage extends StatelessWidget {
         ],
         start: DateTime.now().add(Duration(hours: index)),
         end: DateTime.now().add(Duration(hours: index + 2)),
-        description: 'Sample description for ophaling $index',
+        description: 'Food collection from ${businessNames[index]}',
         location: LatLng(51.0543 + (index * 0.01), 3.7174 + (index * 0.01)),
         transportType: TransportType.values[index % TransportType.values.length],
         needsRefrigeration: index % 3 == 0,
-        maxVolunteers: (index % 3) + 1, // 1, 2, or 3 max volunteers
-        currentVolunteers: index % 2, // 0 or 1 current volunteers
+        maxVolunteers: (index % 3) + 1,
+        currentVolunteers: index % 2,
       ),
     );
 
@@ -46,7 +70,7 @@ class OphalingenPage extends StatelessWidget {
           return Card(
             margin: const EdgeInsets.all(8.0),
             child: ListTile(
-              title: Text(ophaling.description),
+              title: Text(ophaling.user.name),
               subtitle: Text(
                 '${DateFormat('HH:mm').format(ophaling.start)} - ${DateFormat('HH:mm').format(ophaling.end)}',
               ),
