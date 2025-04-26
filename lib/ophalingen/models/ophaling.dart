@@ -26,6 +26,8 @@ enum TransportType {
 }
 
 class Ophaling extends Equatable {
+  final String id;
+
   final User user;
   final List<FoodType> foodtypes;
 
@@ -42,6 +44,8 @@ class Ophaling extends Equatable {
   final int currentVolunteers;
 
   const Ophaling({
+    required this.id,
+
     required this.user,
     required this.foodtypes,
     required this.start,
@@ -59,15 +63,16 @@ class Ophaling extends Equatable {
 
   @override
   List<Object?> get props => [
-        user,
-        foodtypes,
-        start,
-        end,
-        description,
-        transportType,
-        needsRefrigeration,
-        location,
-        maxVolunteers,
-        currentVolunteers,
-      ];
+    id,
+    user,
+    foodtypes,
+    start,
+    end,
+    description,
+    transportType,
+    needsRefrigeration,
+    location,
+    maxVolunteers,
+    currentVolunteers,
+  ];
 }

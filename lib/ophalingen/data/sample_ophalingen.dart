@@ -5,6 +5,7 @@ import 'package:latlong2/latlong.dart';
 class SampleOphalingen {
   static final List<Ophaling> ophalingen = [
     Ophaling(
+      id: "abc",
       user: User(
         name: 'Bakker Klaas',
         email: 'contact@bakkerklaas.be',
@@ -22,6 +23,7 @@ class SampleOphalingen {
       currentVolunteers: 1,
     ),
     Ophaling(
+      id: "def",
       user: User(
         name: 'Aldi',
         email: 'contact@aldi.be',
@@ -39,6 +41,7 @@ class SampleOphalingen {
       currentVolunteers: 0,
     ),
     Ophaling(
+      id: "ghi",
       user: User(
         name: 'Carrefour',
         email: 'contact@carrefour.be',
@@ -56,6 +59,7 @@ class SampleOphalingen {
       currentVolunteers: 2,
     ),
     Ophaling(
+      id: "jkl",
       user: User(
         name: 'Delhaize',
         email: 'info@delhaize.be',
@@ -73,6 +77,7 @@ class SampleOphalingen {
       currentVolunteers: 1,
     ),
     Ophaling(
+      id: "mno",
       user: User(
         name: 'Lidl',
         email: 'support@lidl.be',
@@ -90,6 +95,7 @@ class SampleOphalingen {
       currentVolunteers: 0,
     ),
     Ophaling(
+      id: "pqr",
       user: User(
         name: 'De Sterre resto',
         email: 'resto_sterre@ugent.be',
@@ -107,6 +113,7 @@ class SampleOphalingen {
       currentVolunteers: 2,
     ),
     Ophaling(
+      id: "stu",
       user: User(
         name: 'Panos',
         email: 'support@panos.be',
@@ -124,6 +131,7 @@ class SampleOphalingen {
       currentVolunteers: 2,
     ),
     Ophaling(
+      id: "vwx",
       user: User(
         name: 'BioPlanet',
         email: 'contact@bioplanet.be',
@@ -141,6 +149,7 @@ class SampleOphalingen {
       currentVolunteers: 1,
     ),
     Ophaling(
+      id: "yz0",
       user: User(
         name: 'Colruyt',
         email: 'service@colruyt.be',
@@ -158,6 +167,7 @@ class SampleOphalingen {
       currentVolunteers: 1,
     ),
     Ophaling(
+      id: "123",
       user: User(
         name: 'Spar',
         email: 'spar@spar.be',
@@ -175,6 +185,7 @@ class SampleOphalingen {
       currentVolunteers: 2,
     ),
     Ophaling(
+      id: "456",
       user: User(
         name: 'Bloch',
         email: 'contact@bloch.be',
@@ -192,6 +203,7 @@ class SampleOphalingen {
       currentVolunteers: 1,
     ),
     Ophaling(
+      id: "789",
       user: User(
         name: 'UGent UZ',
         email: 'UZ@ugent.be',
