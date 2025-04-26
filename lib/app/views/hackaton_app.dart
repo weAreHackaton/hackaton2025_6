@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hackaton2025_6/package.dart';
 
 class HackatonApp extends StatelessWidget {
+
   const HackatonApp({super.key});
 
   @override

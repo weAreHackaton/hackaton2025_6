@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hackaton2025_6/package.dart';
 import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
 
 class DetailPage extends StatelessWidget {
   final Ophaling ophaling;
@@ -22,6 +23,8 @@ class DetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    User tempUser = context.read<UserRepository>().getTempUser();
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Ophaling details'),

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:day_picker/day_picker.dart'; 
-import 'package:hackaton2025_6/profiel/models/availability_dates.dart';
-import 'package:hackaton2025_6/profiel/models/user.dart';
-import 'package:hackaton2025_6/profiel/widgets/counter.dart';
+import 'package:hackaton2025_6/package.dart';
+import 'package:provider/provider.dart';
 
 class ProfielPage extends StatefulWidget {
   const ProfielPage({super.key});
@@ -50,6 +49,10 @@ class _ProfielPageState extends State<ProfielPage> {
   }
 
   Future<void> _openDayTimePicker(BuildContext context) async {
+    User tempUser = context.read<UserRepository>().getTempUser();
+
+    selectedDayTimes = tempUser.workingTimes ?? [];
+
     await showDialog(
       context: context,
       builder: (context) {
@@ -155,6 +158,7 @@ class _ProfielPageState extends State<ProfielPage> {
                           endTime: endTime!,
                         ),
                       );
+                      context.read<UserRepository>().updateTempUser(tempUser.copyWith(workingTimes: selectedDayTimes));
                     }
                   });
                   Navigator.pop(context);
@@ -171,6 +175,8 @@ class _ProfielPageState extends State<ProfielPage> {
 
   @override
   Widget build(BuildContext context) {
+    User tempUser = context.read<UserRepository>().getTempUser();
+
     return Scaffold(
       appBar: AppBar(title: const Text('Profiel')),
       body: SingleChildScrollView(
@@ -217,30 +223,31 @@ class _ProfielPageState extends State<ProfielPage> {
                       },
                       child: const Text("Select Available Dates"),
                     ),
-                    ...selectedDayTimes.map((dt) {
-                      final day = dt.day.dayKey.capitalize();
-                      final start = _formatTimeOfDay(dt.startTime);
-                      final end = _formatTimeOfDay(dt.endTime);
-                      return Card(
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                        margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-                        elevation: 3,
-                        child: ListTile(
-                          leading: const Icon(Icons.calendar_today),
-                          title: Text('$day: $start - $end'),
-                          subtitle: Text('Straal: $radius km'),
-                          trailing: IconButton(
-                            icon: const Icon(Icons.delete, color: Colors.redAccent),
-                            onPressed: () {
-                              setState(() {
-                                selectedDayTimes.remove(dt);
-                              });
-                            },
+                    if (tempUser.workingTimes != null && tempUser.workingTimes!.isNotEmpty) // Only show if not null and not empty
+                      ...tempUser.workingTimes!.map((dt) {
+                        final day = dt.day.dayKey.capitalize();
+                        final start = _formatTimeOfDay(dt.startTime);
+                        final end = _formatTimeOfDay(dt.endTime);
+                        return Card(
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                          margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+                          elevation: 3,
+                          child: ListTile(
+                            leading: const Icon(Icons.calendar_today),
+                            title: Text('$day: $start - $end'),
+                            subtitle: Text('Straal: $radius km'),
+                            trailing: IconButton(
+                              icon: const Icon(Icons.delete, color: Colors.redAccent),
+                              onPressed: () {
+                                setState(() {
+                                  selectedDayTimes.remove(dt);
+                                  context.read<UserRepository>().updateTempUser(tempUser.copyWith(workingTimes: selectedDayTimes));
+                                });
+                              },
+                            ),
                           ),
-                        ),
-                      );
-                    }).toList(),
-
+                        );
+                      }),
                   ],
                 ),
               ),

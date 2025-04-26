@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hackaton2025_6/package.dart';
 import 'package:latlong2/latlong.dart';
+import 'package:provider/provider.dart';
 
 class info_card extends StatelessWidget {
     final Ophaling ophaling;
@@ -23,6 +24,8 @@ class info_card extends StatelessWidget {
 
     @override
     Widget build(BuildContext context) {
+        User tempUser = context.read<UserRepository>().getTempUser();
+
         return Card(
             elevation: 3,
             margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
