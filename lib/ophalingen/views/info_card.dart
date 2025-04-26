@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:hackaton2025_6/ophalingen/ophalingen.dart';
+import 'package:hackaton2025_6/ophalingen/widgets/food_type_chip.dart';
 
 class InfoCard extends StatelessWidget {
     final String address;
     final String description;
-    final List<String> tags;
+    final List<FoodType> tags;
 
     const InfoCard({
         super.key,
@@ -31,7 +33,7 @@ class InfoCard extends StatelessWidget {
               Wrap(
                 spacing: 8,
                 runSpacing: -8,
-                children: tags.map((tag) => Chip(label: Text(tag))).toList(),
+                children: tags.map((foodType) => FoodTypeChip(foodType: foodType)).toList(),
               ),
           ],
         ),
