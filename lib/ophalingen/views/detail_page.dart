@@ -64,6 +64,9 @@ class DetailPage extends StatelessWidget {
                                 ),
                               ),
                               Text(
+                                ophaling.isRegular ? 'Regelmatig ophaaladres' : 'Ophaling op afroep'
+                              ),
+                              Text(
                                 ophaling.user.email,
                                 style: const TextStyle(
                                   fontSize: 14,
