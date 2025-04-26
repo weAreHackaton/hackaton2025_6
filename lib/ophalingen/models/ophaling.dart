@@ -7,22 +7,22 @@ import 'package:latlong2/latlong.dart';
 
 
 enum FoodType {
-  vegetables,
-  fruits,
-  meat,
-  fish,
-  dairy,
-  bread,
-  pastries,
-  preparedFood,
-  other,
+  groenten,
+  fruit,
+  vlees,
+  vis,
+  zuivel,
+  brood,
+  gebakjes,
+  bereid,
+  overig,
 }
 
 enum TransportType {
-  cargoBike,
-  minivan,
-  truck,
-  other,
+  fiets,
+  minibus,
+  vrachtwagen,
+  overig,
 }
 
 class Ophaling extends Equatable {

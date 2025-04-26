@@ -9,13 +9,13 @@ class DetailPage extends StatelessWidget {
 
   String _getEmojiForTransportType(TransportType type) {
     switch (type) {
-      case TransportType.cargoBike:
+      case TransportType.fiets:
         return '🚲';
-      case TransportType.minivan:
+      case TransportType.minibus:
         return '🚐';
-      case TransportType.truck:
+      case TransportType.vrachtwagen:
         return '🚚';
-      case TransportType.other:
+      case TransportType.overig:
         return '🚗';
     }
   }
