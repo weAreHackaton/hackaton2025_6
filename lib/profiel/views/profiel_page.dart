@@ -65,7 +65,7 @@ class _ProfielPageState extends State<ProfielPage> {
                 padding: const EdgeInsets.all(8.0),
                 child: SelectWeekDays(
                   key: customWidgetKey,
-                  fontSize: 14,
+                  fontSize: 11,
                   fontWeight: FontWeight.w500,
                   days: _days,
                   border: false,
