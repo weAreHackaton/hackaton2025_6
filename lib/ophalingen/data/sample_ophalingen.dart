@@ -16,7 +16,7 @@ class SampleOphalingen {
       end: DateTime.now().add(const Duration(hours: 4)),
       transportType: TransportType.cargoBike,
       needsRefrigeration: false,
-      description: 'Verse broodjes en koffiekoeken',
+      description: 'Zak met pistolets en enkele broden',
       location: LatLng(51.2194, 4.4025),
       maxVolunteers: 2,
       currentVolunteers: 1,
