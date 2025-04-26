@@ -23,9 +23,9 @@ class InfoCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Adres: $address', style: Theme.of(context).textTheme.titleMedium),
+            Text('$address', style: Theme.of(context).textTheme.titleMedium),
             const SizedBox(height: 8),
-            Text('Beschrijving: $description'),
+            Text('$description'),
             const SizedBox(height: 8),
             if (tags.isNotEmpty)
               Wrap(
