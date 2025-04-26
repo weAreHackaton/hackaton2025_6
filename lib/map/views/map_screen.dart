@@ -85,8 +85,8 @@ class _MapScreenState extends State<MapScreen> {
       _markers.add(
         Marker(
           point: ophaling.location,
-          width: 120,
-          height: 80,
+          width: 160,
+          height: 100,
           child: GestureDetector(
             onTap: () {
               Navigator.push(
@@ -97,6 +97,8 @@ class _MapScreenState extends State<MapScreen> {
               );
             },
             child: Container(
+              width: 160,
+              height: 100,
               padding: const EdgeInsets.all(8),
               decoration: BoxDecoration(
                 color: Colors.white,
@@ -112,18 +114,46 @@ class _MapScreenState extends State<MapScreen> {
               ),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Icon(
-                    Icons.pallet,
-                    color: Colors.amber,
-                    size: 30,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Expanded(
+                        child: Text(
+                          ophaling.user.name,
+                          style: const TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                      const Icon(
+                        Icons.chevron_right,
+                        color: Colors.grey,
+                        size: 16,
+                      ),
+                    ],
                   ),
                   const SizedBox(height: 4),
                   Text(
                     '${DateFormat('HH:mm').format(ophaling.start)} - ${DateFormat('HH:mm').format(ophaling.end)}',
                     style: const TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.bold,
+                      fontSize: 10,
+                      color: Colors.grey,
+                    ),
+                  ),
+                  const SizedBox(height: 4),
+                  Expanded(
+                    child: Text(
+                      ophaling.description,
+                      style: const TextStyle(
+                        fontSize: 10,
+                      ),
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
                     ),
                   ),
                 ],
