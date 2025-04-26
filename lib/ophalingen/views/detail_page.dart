@@ -3,10 +3,26 @@ import 'package:hackaton2025_6/package.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
-class DetailPage extends StatelessWidget {
+class DetailPage extends StatefulWidget {
   final Ophaling ophaling;
 
-  const DetailPage({super.key, required this.ophaling});
+  const DetailPage({
+    super.key,
+    required this.ophaling,
+  });
+
+  @override
+  State<DetailPage> createState() => _DetailPageState();
+}
+
+class _DetailPageState extends State<DetailPage> {
+  late Ophaling _ophaling;
+
+  @override
+  void initState() {
+    super.initState();
+    _ophaling = widget.ophaling;
+  }
 
   String _getEmojiForTransportType(TransportType type) {
     switch (type) {
@@ -21,9 +37,25 @@ class DetailPage extends StatelessWidget {
     }
   }
 
+  void _registerAsVolunteer() {
+    if (_ophaling.currentVolunteers >= _ophaling.maxVolunteers) return;
+
+    setState(() {
+      _ophaling = _ophaling.copyWith(
+        currentVolunteers: _ophaling.currentVolunteers + 1,
+      );
+    });
+
+    context.read<OphalingRepository>().updateTempOphaling(_ophaling.id, _ophaling);
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(content: Text('Geregistreerd!')),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    User tempUser = context.read<UserRepository>().getTempUser();
+    final tempUser = context.read<UserRepository>().getTempUser();
 
     return Scaffold(
       appBar: AppBar(
@@ -43,7 +75,7 @@ class DetailPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      ophaling.description,
+                      _ophaling.description,
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
                     const SizedBox(height: 16),
@@ -52,7 +84,7 @@ class DetailPage extends StatelessWidget {
                     Row(
                       children: [
                         CircleAvatar(
-                          child: Text(ophaling.user.name[0]),
+                          child: Text(_ophaling.user.name[0]),
                         ),
                         const SizedBox(width: 16),
                         Expanded(
@@ -60,17 +92,19 @@ class DetailPage extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                ophaling.user.name,
+                                _ophaling.user.name,
                                 style: const TextStyle(
                                   fontSize: 16,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
                               Text(
-                                ophaling.isRegular ? 'Regelmatig ophaaladres' : 'Ophaling op afroep'
+                                _ophaling.isRegular
+                                    ? 'Regelmatig ophaaladres'
+                                    : 'Ophaling op afroep',
                               ),
                               Text(
-                                ophaling.user.email,
+                                _ophaling.user.email,
                                 style: const TextStyle(
                                   fontSize: 14,
                                   color: Colors.grey,
@@ -115,7 +149,8 @@ class DetailPage extends StatelessWidget {
                     ),
                     const SizedBox(height: 8),
                     Text(
-                      '${DateFormat('HH:mm').format(ophaling.start)} - ${DateFormat('HH:mm').format(ophaling.end)}',
+                      '${DateFormat('HH:mm').format(_ophaling.start)} - '
+                          '${DateFormat('HH:mm').format(_ophaling.end)}',
                       style: const TextStyle(fontSize: 16),
                     ),
                   ],
@@ -133,26 +168,26 @@ class DetailPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Transport (${getDistanceFormatted(ophaling.location, tempUser.location)})',
+                      'Transport (${getDistanceFormatted(_ophaling.location, tempUser.location)})',
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
                     const SizedBox(height: 8),
                     Row(
                       children: [
                         Chip(
-                          avatar: Text(_getEmojiForTransportType(ophaling.transportType)),
+                          avatar: Text(_getEmojiForTransportType(_ophaling.transportType)),
                           label: Text(
-                            ophaling.transportType.name[0].toUpperCase() + 
-                            ophaling.transportType.name.substring(1),
+                            _ophaling.transportType.name[0].toUpperCase() +
+                                _ophaling.transportType.name.substring(1),
                             style: const TextStyle(fontSize: 14),
                           ),
                         ),
-                        if (ophaling.needsRefrigeration) ...[
+                        if (_ophaling.needsRefrigeration) ...[
                           const SizedBox(width: 8),
                           Chip(
                             avatar: const Text('❄️'),
                             label: const Text(
-                              'Refrigerated',
+                              'Koeling nodig',
                               style: TextStyle(fontSize: 14),
                             ),
                           ),
@@ -181,7 +216,9 @@ class DetailPage extends StatelessWidget {
                     Wrap(
                       spacing: 8,
                       runSpacing: 8,
-                      children: ophaling.foodtypes.map((type) => FoodTypeChip(foodType: type)).toList(),
+                      children: _ophaling.foodtypes
+                          .map((type) => FoodTypeChip(foodType: type))
+                          .toList(),
                     ),
                   ],
                 ),
@@ -204,7 +241,7 @@ class DetailPage extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      '${ophaling.currentVolunteers}/${ophaling.maxVolunteers}',
+                      '${_ophaling.currentVolunteers}/${_ophaling.maxVolunteers}',
                       style: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
@@ -216,16 +253,9 @@ class DetailPage extends StatelessWidget {
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
-                    onPressed: ophaling.currentVolunteers >= ophaling.maxVolunteers
+                    onPressed: _ophaling.currentVolunteers >= _ophaling.maxVolunteers
                         ? null
-                        : () {
-                            // TODO: Implement volunteer registration
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(
-                                content: Text('Vrijwilligersregistratie binnenkort beschikbaar!'),
-                              ),
-                            );
-                          },
+                        : _registerAsVolunteer,
                     style: ElevatedButton.styleFrom(
                       padding: const EdgeInsets.symmetric(vertical: 16),
                       backgroundColor: Theme.of(context).colorScheme.primary,
@@ -236,7 +266,7 @@ class DetailPage extends StatelessWidget {
                       ),
                     ),
                     child: Text(
-                      ophaling.currentVolunteers >= ophaling.maxVolunteers
+                      _ophaling.currentVolunteers >= _ophaling.maxVolunteers
                           ? 'Alle plekken zijn bezet'
                           : 'Ophalen',
                       style: const TextStyle(
