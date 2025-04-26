@@ -11,23 +11,23 @@ class FoodTypeChip extends StatelessWidget {
 
   String _getEmojiForFoodType(FoodType type) {
     switch (type) {
-      case FoodType.vegetables:
+      case FoodType.groenten:
         return '🥬';
-      case FoodType.fruits:
+      case FoodType.fruit:
         return '🍎';
-      case FoodType.meat:
+      case FoodType.vlees:
         return '🥩';
-      case FoodType.fish:
+      case FoodType.vis:
         return '🐟';
-      case FoodType.bread:
+      case FoodType.brood:
         return '🥖';
-      case FoodType.pastries:
+      case FoodType.gebakjes:
         return '🥐';
-      case FoodType.dairy:
+      case FoodType.zuivel:
         return '🥛';
-      case FoodType.preparedFood:
+      case FoodType.bereid:
         return '🍱';
-      case FoodType.other:
+      case FoodType.overig:
         return '🍽️';
     }
   }

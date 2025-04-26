@@ -1,3 +1,5 @@
+*het project is geen stokbrood*
+
 ## Problem
 
 Let's Save Food has outgrown their current organisational system.
@@ -15,6 +17,8 @@ deliver food
 - A low barrier for entry, for every party involved. For entities
   to join the cause, you want to make it as easy as possible for
   them.
+
+- 
 
 
 It should be a breeze for every end user to use and interact with
@@ -35,10 +39,15 @@ The provider is notified of this, and both are able to contact
 eachother.
 
 
-How do we define simple?
+**components**
+At this time we have provided a barebones app for volunteers
+where they can find relevant pickups sorted by distance and other
+preferences.
 
-The removal of unneeded communications and overhead.
+We have a back-end in which all data is kept. 
 
+This system is easily extensible to provide interfaces for both
+providers and distribution centers and storage needs.
 
 ## Plot
 

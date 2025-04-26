@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hackaton2025_6/ophalingen/models/ophaling.dart';
-import 'package:hackaton2025_6/ophalingen/widgets/food_type_chip.dart';
-import 'package:latlong2/latlong.dart';
+import 'package:hackaton2025_6/package.dart';
 import 'package:intl/intl.dart';
 
 class DetailPage extends StatelessWidget {
@@ -11,13 +9,13 @@ class DetailPage extends StatelessWidget {
 
   String _getEmojiForTransportType(TransportType type) {
     switch (type) {
-      case TransportType.cargoBike:
+      case TransportType.fiets:
         return '🚲';
-      case TransportType.minivan:
+      case TransportType.minibus:
         return '🚐';
-      case TransportType.truck:
+      case TransportType.vrachtwagen:
         return '🚚';
-      case TransportType.other:
+      case TransportType.overig:
         return '🚗';
     }
   }
@@ -26,7 +24,7 @@ class DetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Ophaling Details'),
+        title: const Text('Ophaling details'),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
@@ -64,6 +62,9 @@ class DetailPage extends StatelessWidget {
                                   fontSize: 16,
                                   fontWeight: FontWeight.bold,
                                 ),
+                              ),
+                              Text(
+                                ophaling.isRegular ? 'Regelmatig ophaaladres' : 'Ophaling op afroep'
                               ),
                               Text(
                                 ophaling.user.email,
@@ -106,7 +107,7 @@ class DetailPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Collection Time',
+                      'Tijdstip',
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
                     const SizedBox(height: 8),
@@ -129,7 +130,7 @@ class DetailPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Transport',
+                      'Transport (${getDistanceFormatted(ophaling.location, tempUser.location)})',
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
                     const SizedBox(height: 8),
@@ -170,7 +171,7 @@ class DetailPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Food Types',
+                      'Type voedsel',
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
                     const SizedBox(height: 8),
@@ -193,7 +194,7 @@ class DetailPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     const Text(
-                      'Volunteers',
+                      'Vrijwilligers',
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
@@ -218,7 +219,7 @@ class DetailPage extends StatelessWidget {
                             // TODO: Implement volunteer registration
                             ScaffoldMessenger.of(context).showSnackBar(
                               const SnackBar(
-                                content: Text('Volunteer registration coming soon!'),
+                                content: Text('Vrijwilligersregistratie binnenkort beschikbaar!'),
                               ),
                             );
                           },
@@ -233,8 +234,8 @@ class DetailPage extends StatelessWidget {
                     ),
                     child: Text(
                       ophaling.currentVolunteers >= ophaling.maxVolunteers
-                          ? 'All spots claimed'
-                          : 'Claim this collection',
+                          ? 'Alle plekken zijn bezet'
+                          : 'Ophalen',
                       style: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
