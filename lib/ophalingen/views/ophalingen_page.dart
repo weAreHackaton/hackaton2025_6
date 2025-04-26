@@ -4,6 +4,7 @@ import 'package:latlong2/latlong.dart';
 import 'package:intl/intl.dart';
 
 import 'detail_page.dart';
+import 'InfoCard.dart';
 
 class OphalingenPage extends StatelessWidget {
   const OphalingenPage({super.key});
@@ -67,22 +68,19 @@ class OphalingenPage extends StatelessWidget {
         itemCount: ophalingen.length,
         itemBuilder: (context, index) {
           final ophaling = ophalingen[index];
-          return Card(
-            margin: const EdgeInsets.all(8.0),
-            child: ListTile(
-              title: Text(ophaling.user.name),
-              subtitle: Text(
-                '${DateFormat('HH:mm').format(ophaling.start)} - ${DateFormat('HH:mm').format(ophaling.end)}',
-              ),
-              trailing: Text('${ophaling.currentVolunteers}/${ophaling.maxVolunteers}'),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => DetailPage(ophaling: ophaling),
-                  ),
-                );
-              },
+          return GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => DetailPage(ophaling: ophaling),
+                ),
+              );
+            },
+            child: InfoCard(
+              address: ophaling.user.name,
+              description: ophaling.description,
+              tags: ophaling.foodtypes.map((type) => type.name).toList(),
             ),
           );
         },
