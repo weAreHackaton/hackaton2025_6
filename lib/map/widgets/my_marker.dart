@@ -83,6 +83,11 @@ class _OpenedMarkerContent extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
             ),
           ),
+          const SizedBox(height: 4),
+          Text(
+            '${ophaling.currentVolunteers}/${ophaling.maxVolunteers}',
+             style: const TextStyle(fontSize: 10),
+          ),
         ],
       ),
     );
