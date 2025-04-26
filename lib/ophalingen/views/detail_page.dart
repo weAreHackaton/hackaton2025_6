@@ -104,7 +104,7 @@ class DetailPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Collection time',
+                      'Tijdstip',
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
                     const SizedBox(height: 8),
@@ -168,7 +168,7 @@ class DetailPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Food types',
+                      'Type voedsel',
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
                     const SizedBox(height: 8),
@@ -191,7 +191,7 @@ class DetailPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     const Text(
-                      'Volunteers',
+                      'Vrijwilligers',
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
@@ -216,7 +216,7 @@ class DetailPage extends StatelessWidget {
                             // TODO: Implement volunteer registration
                             ScaffoldMessenger.of(context).showSnackBar(
                               const SnackBar(
-                                content: Text('Volunteer registration coming soon!'),
+                                content: Text('Vrijwilligersregistratie binnenkort beschikbaar!'),
                               ),
                             );
                           },
@@ -231,8 +231,8 @@ class DetailPage extends StatelessWidget {
                     ),
                     child: Text(
                       ophaling.currentVolunteers >= ophaling.maxVolunteers
-                          ? 'All spots claimed'
-                          : 'Claim this collection',
+                          ? 'Alle plekken zijn bezet'
+                          : 'Ophalen',
                       style: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
