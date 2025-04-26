@@ -80,7 +80,7 @@ class OphalingenPage extends StatelessWidget {
             child: InfoCard(
               address: ophaling.user.name,
               description: ophaling.description,
-              tags: ophaling.foodtypes.map((type) => type.name).toList(),
+              tags: ophaling.foodtypes,
             ),
           );
         },
